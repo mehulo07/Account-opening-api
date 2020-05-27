@@ -1,0 +1,116 @@
+1> Authentication table
+--------------------------------------------------------
+create table account_opening_auth_tab(
+    user_id varchar(20) not null,
+    user_name varchar(100) not null,
+    password varchar(100) not null,
+    roles varchar(50) not null,
+    active varchar(5) not null,
+    updated_by varchar(100) not null,
+    updated_no date not null,
+    primary key(user_name)
+);
+
+insert into account_opening_auth_tab values ('BNS_101','bnssop','bnssop','ROLE_USER','Y','makwameh',sysdate);
+
+
+
+2> Registration table
+
+create table Account_Opening_Reg_Info_Tab(
+account_Opening_Reg_Info_id varchar2(10) primary key,
+first_Name varchar2(100) not null,
+sur_Name varchar2(100) not null,
+reg_position varchar2(50) not null,
+reg_Pharmacy_Name varchar2(100) not null,
+reg_Contact_No_type varchar2(20) not null,
+reg_Contact_No  varchar2(12) not null,
+reg_WebSite varchar2(50) ,
+reg_Email_Address varchar2(50) not null,
+reg_Password varchar2(50) not null,
+reg_term_Condition varchar2(10) not null,
+reg_create_date date not null,
+reg_update_date date 
+);
+
+
+3> Security Question
+
+DROP TABLE IF EXISTS `sarfaraz`.`security_question`;
+CREATE TABLE  `sarfaraz`.`security_question` (
+  `security_question_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `security_question_name` varchar(255) NOT NULL,
+  PRIMARY KEY (`security_question_id`)
+);
+
+4>Company Type
+DROP TABLE IF EXISTS `sarfaraz`.`company_type`;
+CREATE TABLE  `sarfaraz`.`company_type` (
+  `company_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `company_name` varchar(255) NOT NULL,
+  PRIMARY KEY (`company_id`)
+)
+5 > business_type
+
+CREATE TABLE  `sarfaraz`.`business_type` (
+  `business_type_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `business_type_name` varchar(255) NOT NULL,
+  `company_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`business_type_id`),
+  KEY `FK47dlmjtf7e6q8yeuqwrhs9y6f` (`company_id`)
+) 
+
+6>account_opening_security_que
+
+CREATE TABLE  `sarfaraz`.`account_opening_security_que` (
+  `account_opening_security_que_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `security_answer_one` varchar(255) NOT NULL,
+  `security_answer_two` varchar(255) NOT NULL,
+  `security_question_one` varchar(255) NOT NULL,
+  `security_question_two` varchar(255) NOT NULL,
+  `security_term_condition` bit(1) DEFAULT NULL,
+  `ao_pening_reg_info_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`account_opening_security_que_id`),
+  KEY `FKlj0o37e3c4lkd0qatji7gk5i1` (`ao_pening_reg_info_id`)
+) 
+
+7>account_opening_marketing_pref
+
+CREATE TABLE  `sarfaraz`.`account_opening_marketing_pref` (
+  `account_opening_marketing_pref_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `marketing_email` bit(1) DEFAULT NULL,
+  `marketing_phone` bit(1) DEFAULT NULL,
+  `marketing_post` bit(1) DEFAULT NULL,
+  `marketing_sms` bit(1) DEFAULT NULL,
+  `ao_pening_reg_info_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`account_opening_marketing_pref_id`),
+  KEY `FKkr2v88qdaviaq5t3yy8tpj92t` (`ao_pening_reg_info_id`)
+) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
