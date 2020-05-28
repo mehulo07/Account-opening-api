@@ -29,16 +29,15 @@ public class AccOpeningRegService {
 		//save Registration Details
 		//AccOpeningReg returnObj = accOpeningRegRepository.save(accOpeningReg);
 		AccOpeningReg returnObj = null;
-		
+		AccOpeningEmailInfo teampAccOpeningEmailInfo = null; 
 		AccOpeningEmailInfo accOpeningEmailInfo = new AccOpeningEmailInfo();
 			
+		accOpeningEmailInfo.setEmailVerified(false);
 			accOpeningEmailInfo.setAccOpeningReg(accOpeningReg);
-			accOpeningEmailInfoRepository.save(accOpeningEmailInfo);
-			
-			/*accOpeningEmailInfo.setEmailVerified(false);
-			accOpeningReg.setAccOpeningEmailInfo(accOpeningEmailInfo);
-			*/
-			returnObj = accOpeningRegRepository.save(accOpeningReg);
+			teampAccOpeningEmailInfo = accOpeningEmailInfoRepository.save(accOpeningEmailInfo);
+			returnObj = teampAccOpeningEmailInfo.getAccOpeningReg();
+			//accOpeningReg.setAccOpeningEmailInfo(accOpeningEmailInfo);
+			//returnObj = accOpeningRegRepository.save(accOpeningReg);
 			
 		//Send Mail
 		isMailSend = verificationMailSendingCls.sendMailFunc(returnObj.getRegEmailAddress(), returnObj.getAccountOpeningRegInfoId());

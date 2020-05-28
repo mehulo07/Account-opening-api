@@ -25,9 +25,7 @@ public class AccOpeningController {
 	@PostMapping("/")
 	public String accOpeningForm(@RequestBody AccOpeningReg accOpeningReg) throws Exception {
 		System.out.println("inisde accOpeningForm");
-		System.out.println("HI my name is mehul");
 		return accOpeningRegService.createAccount(accOpeningReg);
 	}
-
-
+	
 }

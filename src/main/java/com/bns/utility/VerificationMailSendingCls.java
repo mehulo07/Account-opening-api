@@ -20,30 +20,50 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 @Service
-@PropertySources({@PropertySource(value = "classpath:cipher.properties" , ignoreResourceNotFound = true),
-	@PropertySource(value = "classpath:mailConfig.properties" , ignoreResourceNotFound = true)})
+@PropertySources({@PropertySource(value = "classpath:cipher.properties"),
+	@PropertySource(value = "classpath:mailConfig.properties")})
 public class VerificationMailSendingCls {
 	
 	@Autowired
-	private static Environment env;
+	private Environment env;
 	
-	
-	static public boolean sendMailFunc(String reciverMail, int uniqueId) {
+	 public boolean sendMailFunc(String reciverMail, int uniqueId) {
 		boolean returnVal = false;
 		String mailKey = "";
 		final String mailValidationURL = "http://localhost:8080/verifyEmail?key=";
 		String preparedMailValidationURL = "";
 		System.out.println("reciverMail is :" + reciverMail);
-
 		Properties props = new Properties();
-		props.put("mail.smtp.auth",env.getProperty("mail.auth"));
-		props.put("mail.smtp.starttls.enable", env.getProperty("mail.starttls"));
-		props.put("mail.smtp.host", env.getProperty("mail.smtp.host"));
-		props.put("mail.smtp.port", env.getProperty("mail.port"));
+		System.out.println("mail address is :"+props.getProperty("mail.auth"));
+		System.out.println();
+		
+		if(env == null) {
+			System.out.println("Environment is null");
+		}else {
+			System.out.println("ENV is not null");
+		}
+		
+		System.out.println("email address is :"+env.getProperty("mail.auth"));
+		
+		try {
+			props.put("mail.smtp.auth",env.getProperty("mail.auth"));
+			props.put("mail.smtp.starttls.enable", env.getProperty("mail.starttls"));
+			props.put("mail.smtp.host", env.getProperty("mail.smtp.host"));
+			props.put("mail.smtp.port", env.getProperty("mail.port"));
 
+		}catch(Exception e) {
+			System.out.println("Exception while getData");
+			e.printStackTrace();
+		}
+
+
+		System.out.println("Stage 1 is done");
+		
 		try {
 			Session session = Session.getInstance(props, new javax.mail.Authenticator() {
 				protected PasswordAuthentication getPasswordAuthentication() {
+					
+					System.out.println("Address  :"+env.getProperty("mail.from") + " password is :"+env.getProperty("mail.from.password"));
 					return new PasswordAuthentication(env.getProperty("mail.from"), env.getProperty("mail.from.password"));
 				}
 			});
