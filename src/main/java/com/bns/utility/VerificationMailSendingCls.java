@@ -13,6 +13,7 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+import org.apache.catalina.core.ApplicationContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
@@ -27,11 +28,15 @@ public class VerificationMailSendingCls {
 	@Autowired
 	private Environment env;
 	
-	 public boolean sendMailFunc(String reciverMail, int uniqueId) {
+	 public boolean sendMailFunc(String reciverMail, int uniqueId , boolean resendFlag) {
 		boolean returnVal = false;
 		String mailKey = "";
 		final String mailValidationURL = "http://localhost:8080/verifyEmail?key=";
+		final String resendMailValidationURL ="http://localhost:8080/resendEmail?key=";
+		System.out.println("Application COntext path is TEMPDIR :"+ApplicationContext.TEMPDIR);
 		String preparedMailValidationURL = "";
+		String preparedResendMailValidationURL = "";
+		
 		System.out.println("reciverMail is :" + reciverMail);
 		Properties props = new Properties();
 		System.out.println("mail address is :"+props.getProperty("mail.auth"));
@@ -63,25 +68,37 @@ public class VerificationMailSendingCls {
 			Session session = Session.getInstance(props, new javax.mail.Authenticator() {
 				protected PasswordAuthentication getPasswordAuthentication() {
 					
-					System.out.println("Address  :"+env.getProperty("mail.from") + " password is :"+env.getProperty("mail.from.password"));
-					return new PasswordAuthentication(env.getProperty("mail.from"), env.getProperty("mail.from.password"));
+					System.out.println("Address  :"+env.getProperty("mail.from.id") + " password is :"+env.getProperty("mail.from.password"));
+					return new PasswordAuthentication(env.getProperty("mail.from.id"), env.getProperty("mail.from.password"));
 				}
 			});
 
 			Message msg = new MimeMessage(session);
-			msg.setFrom(new InternetAddress("mehulmakwana339@gmail.com", false));
+			msg.setFrom(new InternetAddress(env.getProperty("mail.from"), false));
 
 			msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(reciverMail));
-			msg.setSubject("Account Creation with BNS Distribution");
+			if(resendFlag) {
+				msg.setSubject("Resend : Account Creation with BNS Distribution ");
+			}else {
+				msg.setSubject("Account Creation with BNS Distribution");
+			}
+
 			msg.setContent("Please verify your email id via click link Below Unique id is :" + uniqueId, "text/html");
 			msg.setSentDate(new Date());
 
 			MimeBodyPart messageBodyPart = new MimeBodyPart();
 			mailKey = EncryptionDecryptionUtility.encrypt(String.valueOf(uniqueId), env.getProperty("cipherkey"));
 			preparedMailValidationURL = mailValidationURL + mailKey;
+			preparedResendMailValidationURL = resendMailValidationURL + mailKey;
 
 			String sendMessage = "<a \"target=\"_blank\" href=" + preparedMailValidationURL
 					+ ">Validate Email Address</a>";
+			
+			
+			String resendLink = "<br/> <a \"target=\"_blank\" href=" + preparedResendMailValidationURL 
+					+ ">Click for Resend.</a>";
+			sendMessage += resendLink;
+			
 			messageBodyPart.setContent(sendMessage, "text/html");
 
 			Multipart multipart = new MimeMultipart();

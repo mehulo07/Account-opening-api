@@ -40,7 +40,7 @@ public class AccOpeningRegService {
 			//returnObj = accOpeningRegRepository.save(accOpeningReg);
 			
 		//Send Mail
-		isMailSend = verificationMailSendingCls.sendMailFunc(returnObj.getRegEmailAddress(), returnObj.getAccountOpeningRegInfoId());
+		isMailSend = verificationMailSendingCls.sendMailFunc(returnObj.getRegEmailAddress(), returnObj.getAccountOpeningRegInfoId(),false);
 		if(isMailSend) {
 			returnVal ="Email verification mail is send to your email id please verify it :"+returnObj.getAccountOpeningRegInfoId();
 		}else {
