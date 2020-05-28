@@ -21,51 +21,46 @@ import com.bns.repository.BusinessSupplierRepository;
 import com.bns.repository.BusinessTypeRepository;
 import com.bns.service.BusinessSupplierService;
 
-
-
 @RestController
 @CrossOrigin
 public class BusinessSupplierController {
-	
+
 	@Autowired
 	private BusinessSupplierService businessSupplierService;
 	@Autowired
 	private BusinessTypeRepository businessTypeRepository;
-	
+
 	@Autowired
 	private BusinessSupplierRepository businessSupplierRepository;
-	
-	
+
 	// Business Supplier creation
-		@PostMapping("/businessSupplier")
-		public BusinessSupplier createBusinessSupplier(@Valid @RequestBody BusinessSupplier businessSupplier) throws Exception {
-		
-				Long businessTypeid= businessSupplier.getBusinessType().getBusinessTypeId();
+	@PostMapping("/businessSupplier")
+	public BusinessSupplier createBusinessSupplier(@Valid @RequestBody BusinessSupplier businessSupplier)
+			throws Exception {
 
-				BusinessType businessType = businessTypeRepository.findById(businessTypeid).get();
-				businessSupplier.setBusinessType(businessType);
-				
-				return businessSupplierService.createBusinessSupplier(businessSupplier);
-			
-		}
-		
-		// Business Supplier getAll List Value by BusinessTypeID
-		@GetMapping("/businessSupplierBusinessTypeID/{id}")
-		public List<BusinessSupplier> getbussinessSupplierBusinessTypeID(@PathVariable(value = "id") Long businessTypeID) throws Exception {
-			return businessSupplierRepository.findByBusinessTypeID(businessTypeID);
-		}
-		
-		
-		@GetMapping("/businessSupplier/{id}")
-		public ResponseEntity<BusinessSupplier> BusinessSupplierList(
-				@PathVariable(value = "id") Long businessSupplierId) throws ResourceNotFoundException {
-			BusinessSupplier businessSupplier = businessSupplierService
-					.getBusinessSupplierId(businessSupplierId).orElseThrow(() -> new ResourceNotFoundException(
-							"Business Supplier not found for this id :: " + businessSupplierId));
-			return ResponseEntity.ok().body(businessSupplier);
-		}
+		Long businessTypeid = businessSupplier.getBusinessType().getBusinessTypeId();
 
-		
-		
+		BusinessType businessType = businessTypeRepository.findById(businessTypeid).get();
+		businessSupplier.setBusinessType(businessType);
+
+		return businessSupplierService.createBusinessSupplier(businessSupplier);
+
+	}
+
+	// Business Supplier getAll List Value by BusinessTypeID
+	@GetMapping("/businessSupplierBusinessTypeID/{id}")
+	public List<BusinessSupplier> getbussinessSupplierBusinessTypeID(@PathVariable(value = "id") Long businessTypeID)
+			throws Exception {
+		return businessSupplierRepository.findByBusinessTypeID(businessTypeID);
+	}
+
+	@GetMapping("/businessSupplier/{id}")
+	public ResponseEntity<BusinessSupplier> BusinessSupplierList(@PathVariable(value = "id") Long businessSupplierId)
+			throws ResourceNotFoundException {
+		BusinessSupplier businessSupplier = businessSupplierService.getBusinessSupplierId(businessSupplierId)
+				.orElseThrow(() -> new ResourceNotFoundException(
+						"Business Supplier not found for this id :: " + businessSupplierId));
+		return ResponseEntity.ok().body(businessSupplier);
+	}
 
 }

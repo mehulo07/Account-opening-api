@@ -20,6 +20,7 @@ import com.bns.model.BusinessType;
 import com.bns.repository.BusinessPmrRepository;
 import com.bns.repository.BusinessTypeRepository;
 import com.bns.service.BusinessPmrService;
+
 @RestController
 @CrossOrigin
 public class BusinessPmrController {
@@ -29,38 +30,33 @@ public class BusinessPmrController {
 	private BusinessPmrRepository businessPmrRepository;
 	@Autowired
 	private BusinessPmrService businessPmrService;
-	
-	
-	
-	
 
 	// BusinessPmr creation
-			@PostMapping("/businessPmr")
-			public BusinessPmr createBusinessPmr(@Valid @RequestBody BusinessPmr businessPmr) throws Exception {
-			
-					Long businessTypeid= businessPmr.getBusinessType().getBusinessTypeId();
+	@PostMapping("/businessPmr")
+	public BusinessPmr createBusinessPmr(@Valid @RequestBody BusinessPmr businessPmr) throws Exception {
 
-					BusinessType businessType = businessTypeRepository.findById(businessTypeid).get();
-					businessPmr.setBusinessType(businessType);
-					
-					return businessPmrService.createBusinessPmr(businessPmr);
-				
-			}
-			
-			// business Pmr  getAll List Value by BusinessTypeID
-			@GetMapping("/businessPmrBusinessTypeID/{id}")
-			public List<BusinessPmr> getbusinessPmrBusinessTypeID(@PathVariable(value = "id") Long businessPmrID) throws Exception {
-				return businessPmrRepository.findByBusinessTypeID(businessPmrID);
-			}
-			
-			
-			@GetMapping("/businessPmr/{id}")
-			public ResponseEntity<BusinessPmr> BusinessPmrList(
-					@PathVariable(value = "id") Long businessPmrId) throws ResourceNotFoundException {
-				BusinessPmr businessPmr = businessPmrService
-						.getBusinessPmrId(businessPmrId).orElseThrow(() -> new ResourceNotFoundException(
-								"Business Pmr not found for this id :: " + businessPmrId));
-				return ResponseEntity.ok().body(businessPmr);
-			}
+		Long businessTypeid = businessPmr.getBusinessType().getBusinessTypeId();
+
+		BusinessType businessType = businessTypeRepository.findById(businessTypeid).get();
+		businessPmr.setBusinessType(businessType);
+
+		return businessPmrService.createBusinessPmr(businessPmr);
+
+	}
+
+	// business Pmr getAll List Value by BusinessTypeID
+	@GetMapping("/businessPmrBusinessTypeID/{id}")
+	public List<BusinessPmr> getbusinessPmrBusinessTypeID(@PathVariable(value = "id") Long businessPmrID)
+			throws Exception {
+		return businessPmrRepository.findByBusinessTypeID(businessPmrID);
+	}
+
+	@GetMapping("/businessPmr/{id}")
+	public ResponseEntity<BusinessPmr> BusinessPmrList(@PathVariable(value = "id") Long businessPmrId)
+			throws ResourceNotFoundException {
+		BusinessPmr businessPmr = businessPmrService.getBusinessPmrId(businessPmrId).orElseThrow(
+				() -> new ResourceNotFoundException("Business Pmr not found for this id :: " + businessPmrId));
+		return ResponseEntity.ok().body(businessPmr);
+	}
 
 }
