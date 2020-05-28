@@ -90,8 +90,8 @@ CREATE TABLE  `sarfaraz`.`account_opening_marketing_pref` (
 
 
 
-
-
+ 1
+test commit
 
 
 
