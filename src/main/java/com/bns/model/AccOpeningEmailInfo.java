@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import com.bns.utility.BooleanToStringConverter;
 
 @Entity
-@Table(name="Account_Opening_Email_Info")
+@Table(name="account_Opening_Email_Info")
 public class AccOpeningEmailInfo implements Serializable {
 
 	/**

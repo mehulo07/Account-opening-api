@@ -21,9 +21,7 @@ public class AccOpeningEmailInfoService {
 			*/
 			
 			System.out.println("accRegId is :"+accRegId);
-			AccOpeningEmailInfo accOpeningEmailInfo = accOpeningEmailInfoRepository.findAllByReferanceId(Long.valueOf(accRegId));
-			
-			System.out.println("accOpeningEmailInfo is :"+accOpeningEmailInfo);
+			AccOpeningEmailInfo accOpeningEmailInfo = accOpeningEmailInfoRepository.findByReferanceId(Long.valueOf(accRegId));
 			
 			if(!accOpeningEmailInfo.isEmailVerified()) {
 				accOpeningEmailInfo.setEmailVerified(true);
