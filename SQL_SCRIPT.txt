@@ -12,7 +12,20 @@ create table account_opening_auth_tab(
 );
 
 insert into account_opening_auth_tab values ('BNS_101','bnssop','bnssop','ROLE_USER','Y','makwameh',sysdate);
+#authenticastion Updated columns and insert query
+create table account_opening_auth_tab(
+    user_id varchar(20) not null,
+    user_name varchar(100) not null,
+    password varchar(100) not null,
+    roles varchar(50) not null,
+    active varchar(5) not null,
+    info_entry_id varchar(20),
+    updated_by varchar(100) not null,
+    updated_no date not null,
+    primary key(user_name)
+);
 
+insert into account_opening_auth_tab values ('BNS_101','9725603422.mukeshmakwana990@gmail.com','bnssop','ROLE_USER','1','1005','makwameh',sysdate());
 
 
 2> Registration table
@@ -87,11 +100,50 @@ CREATE TABLE  `sarfaraz`.`account_opening_marketing_pref` (
   KEY `FKkr2v88qdaviaq5t3yy8tpj92t` (`ao_pening_reg_info_id`)
 ) 
 
+8>Payment Methods Master table
+create table account_opening_payment_methods_tab(
+    method_Id varchar(20) not null,
+    method_Name varchar(100) not null,
+    active varchar(100) not null,
+    updated_by varchar(50) not null,
+    updated_on date not null,
+    primary key(method_Id)
+);
+
+insert into account_opening_payment_methods_tab values ('1','Bacs','1','rathomoh',sysdate());
+insert into account_opening_payment_methods_tab values ('2','Chaps','1','rathomoh',sysdate());
+insert into account_opening_payment_methods_tab values ('3','Direct Debit','1','rathomoh',sysdate());
+insert into account_opening_payment_methods_tab values ('4','Cheque','1','rathomoh',sysdate());
+
+9>Payment Terms Request tab
+create table account_opening_payment_terms_req_tab(
+    request_id varchar(20) not null,
+    request_name varchar(100) not null,
+    active varchar(100) not null,
+    updated_by varchar(50) not null,
+    updated_on date not null,
+    primary key(request_id)
+);
+
+insert into account_opening_payment_terms_req_tab values ('1','Upfront','1','rathomoh',sysdate());
+insert into account_opening_payment_terms_req_tab values ('2','30 Days','1','rathomoh',sysdate());
+insert into account_opening_payment_terms_req_tab values ('3','60 Days','1','rathomoh',sysdate());
 
 
+10>Prefered delivery terms tab
+create table account_opening_payment_deli_terms_tab(
+    deli_terms_id varchar(20) not null,
+    deli_terms_name varchar(100) not null,
+    active varchar(100) not null,
+    updated_by varchar(50) not null,
+    updated_on date not null,
+    primary key(deli_terms_id)
+);
 
- 1
-test commit
+insert into account_opening_payment_deli_terms_tab values ('1','PRE 12.00 PM','1','rathomoh',sysdate());
+insert into account_opening_payment_deli_terms_tab values ('2','PRE 10.30 AM','1','rathomoh',sysdate());
+insert into account_opening_payment_deli_terms_tab values ('3','PRE 09.00 AM','1','rathomoh',sysdate());
+
 
 
 
