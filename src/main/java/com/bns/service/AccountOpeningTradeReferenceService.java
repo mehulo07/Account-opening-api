@@ -31,6 +31,7 @@ public class AccountOpeningTradeReferenceService {
 
 	public AccountOpeningTradeReference updateAccountOpeningTradeReference(Long accountOpeningTradeReferenceId,
 			AccountOpeningTradeReference accountOpeningTradeReference) throws ResourceNotFoundException {
+		
 		AccountOpeningTradeReference accountOpeningTradeReference1 = accountOpeningTradeReferenceRepository
 				.findById(accountOpeningTradeReferenceId).orElseThrow(() -> new ResourceNotFoundException(
 						"AccountOpeningTradeReference not found for this id :: " + accountOpeningTradeReferenceId));
@@ -53,5 +54,7 @@ public class AccountOpeningTradeReferenceService {
 				.save(accountOpeningTradeReference1);
 		return updatedAccountOpeningTradeReference;
 	}
+	
+	
 
 }
