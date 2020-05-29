@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="account_opening_payment_methods_tab")
+@Table(name="payment_methods_master_tab")
 public class PaymentMethod implements Serializable{
 	/**
 	 * @author rathomoh
@@ -18,12 +18,22 @@ public class PaymentMethod implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private long methodId;
 	private String methodName;
-	public PaymentMethod(long methodId, String methodName) {
+	private String active;
+	public PaymentMethod(long methodId, String methodName, String active) {
+		super();
 		this.methodId = methodId;
 		this.methodName = methodName;
+		this.active = active;
 	}
 	public PaymentMethod() {
-		
+		super();
+	}
+	@Column(name = "active",nullable = false)
+	public String getActive() {
+		return active;
+	}
+	public void setActive(String active) {
+		this.active = active;
 	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -43,7 +53,7 @@ public class PaymentMethod implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "PaymentMethod [methodId=" + methodId + ", methodName=" + methodName + "]";
+		return "PaymentMethod [methodId=" + methodId + ", methodName=" + methodName + ", active=" + active + "]";
 	}
 	
 	

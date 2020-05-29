@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="account_opening_payment_deli_terms_tab")
+@Table(name="payment_deli_terms_master_tab")
 public class PaymentDeliveryTerms implements Serializable{
 
 	/**
@@ -19,12 +19,16 @@ public class PaymentDeliveryTerms implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private long deliveryTermsId;
 	private String deliveryTermsName;
-	public PaymentDeliveryTerms(long deliveryTermsId, String deliveryTermsName) {
+	private String active;
+	
+	public PaymentDeliveryTerms() {
+		super();
+	}
+	public PaymentDeliveryTerms(long deliveryTermsId, String deliveryTermsName, String active) {
+		super();
 		this.deliveryTermsId = deliveryTermsId;
 		this.deliveryTermsName = deliveryTermsName;
-	}
-	public PaymentDeliveryTerms() {
-		
+		this.active = active;
 	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -42,10 +46,17 @@ public class PaymentDeliveryTerms implements Serializable{
 	public void setDeliveryTermsName(String deliveryTermsName) {
 		this.deliveryTermsName = deliveryTermsName;
 	}
+	@Column(name = "active",nullable = false)
+	public String getActive() {
+		return active;
+	}
+	public void setActive(String active) {
+		this.active = active;
+	}
 	@Override
 	public String toString() {
 		return "PaymentDeliveryTerms [deliveryTermsId=" + deliveryTermsId + ", deliveryTermsName=" + deliveryTermsName
-				+ "]";
+				+ ", active=" + active + "]";
 	}
 	
 	
