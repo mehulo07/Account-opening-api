@@ -13,7 +13,7 @@ import com.bns.service.AccOpeningRegService;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/openAccount")
+@RequestMapping("/v1/openAccount")
 public class AccOpeningController {
 
 	@Autowired

@@ -19,7 +19,7 @@ import com.bns.service.DirectoresGuaranteeService;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/AccOpeningAPI")
+@RequestMapping("/v1/openAccount")
 public class DirectoresGuaranteeController {
 	
 	@Autowired
