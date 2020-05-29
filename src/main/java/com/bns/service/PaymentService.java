@@ -1,6 +1,8 @@
 package com.bns.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,6 +71,15 @@ public class PaymentService {
 		paymentMethodInfo.setUpdatedBy(paymentMethodInfoDetails.getUpdatedBy());
 		final PaymentMethodInfo updatedPaymentMethodInfo = paymentMethodInfoRepository.save(paymentMethodInfo);
 		return updatedPaymentMethodInfo;
+	}
+	public Map<String, Boolean> deletePaymentMethodInfo(Long methodInfoId) throws ResourceNotFoundException{
+		PaymentMethodInfo paymentMethodInfo = paymentMethodInfoRepository.findById(methodInfoId)
+				.orElseThrow(() -> new ResourceNotFoundException("Method Not Fount"));
+		paymentMethodInfoRepository.delete(paymentMethodInfo);
+		Map < String, Boolean > response = new HashMap < > ();
+        response.put("deleted", Boolean.TRUE);
+        return response;
+		
 	}
 
 }
