@@ -12,8 +12,20 @@ create table account_opening_auth_tab(
 );
 
 insert into account_opening_auth_tab values ('BNS_101','bnssop','bnssop','ROLE_USER','Y','makwameh',sysdate);
+#authenticastion Updated columns and insert query
+create table account_opening_auth_tab(
+    user_id varchar(20) not null,
+    user_name varchar(100) not null,
+    password varchar(100) not null,
+    roles varchar(50) not null,
+    active varchar(5) not null,
+    info_entry_id varchar(20),
+    updated_by varchar(100) not null,
+    updated_no date not null,
+    primary key(user_name)
+);
 
-
+insert into account_opening_auth_tab values ('BNS_101','9725603422.mukeshmakwana990@gmail.com','bnssop','ROLE_USER','1','1005','makwameh',sysdate());
 
 2> Registration table
 
@@ -85,13 +97,57 @@ CREATE TABLE  `sarfaraz`.`account_opening_marketing_pref` (
   `ao_pening_reg_info_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`account_opening_marketing_pref_id`),
   KEY `FKkr2v88qdaviaq5t3yy8tpj92t` (`ao_pening_reg_info_id`)
+<<<<<<< HEAD
+)
+=======
 ) 
 
+8>Payment Methods Master table
+create table payment_methods_master_tab(
+    method_Id varchar(20) not null,
+    method_Name varchar(100) not null,
+    active varchar(100) not null,
+    updated_by varchar(50) not null,
+    updated_on date not null,
+    primary key(method_Id)
+);
+
+insert into payment_methods_master_tab values ('1','Bacs','1','rathomoh',sysdate());
+insert into payment_methods_master_tab values ('2','Chaps','1','rathomoh',sysdate());
+insert into payment_methods_master_tab values ('3','Direct Debit','1','rathomoh',sysdate());
+insert into payment_methods_master_tab values ('4','Cheque','1','rathomoh',sysdate());
+
+9>Payment Terms Request tab
+create table payment_terms_req_master_tab(
+    request_id varchar(20) not null,
+    request_name varchar(100) not null,
+    active varchar(100) not null,
+    updated_by varchar(50) not null,
+    updated_on date not null,
+    primary key(request_id)
+);
+
+insert into payment_terms_req_master_tab values ('1','Upfront','1','rathomoh',sysdate());
+insert into payment_terms_req_master_tab values ('2','30 Days','1','rathomoh',sysdate());
+insert into payment_terms_req_master_tab values ('3','60 Days','1','rathomoh',sysdate());
+
+
+10>Prefered delivery terms tab
+create table payment_deli_terms_master_tab(
+    deli_terms_id varchar(20) not null,
+    deli_terms_name varchar(100) not null,
+    active varchar(100) not null,
+    updated_by varchar(50) not null,
+    updated_on date not null,
+    primary key(deli_terms_id)
+);
+
+insert into payment_deli_terms_master_tab values ('1','PRE 12.00 PM','1','rathomoh',sysdate());
+insert into payment_deli_terms_master_tab values ('2','PRE 10.30 AM','1','rathomoh',sysdate());
+insert into payment_deli_terms_master_tab values ('3','PRE 09.00 AM','1','rathomoh',sysdate());
 
 
 
- 1
-test commit
 
 
 
@@ -103,10 +159,26 @@ test commit
 
 
 
+>>>>>>> f30cdbdf47b5237166a04a30f3541283c85b5d4b
 
 
+table name : Account_Opening_Directors_Guarantee
+==================================================
 
-
+create table Account_Opening_Directors_Guarantee(
+    Account_Opening_Directors_Guarantee_id number(8) primary key,
+    inserted_on date ,
+    Name_of_Guarantor varchar2(100) not null,
+    guarantor_sign varchar2(35) not null,
+    Name_of_Witness varchar2(100) not null,
+    witness_sign varchar2(35) not null,
+    Witness_postcode varchar2(20) ,
+    Witness_home_address varchar2(200) ,
+    Witness_city varchar2(35),
+    Witness_state varchar2(35),
+    Witness_country varchar2(35),
+    account_Opening_Business_Info_id number(8) REFERENCES Account_Opening_Business_Info (account_Opening_Business_Info_id)
+);
 
 
 

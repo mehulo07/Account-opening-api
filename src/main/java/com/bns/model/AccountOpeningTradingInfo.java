@@ -32,8 +32,6 @@ public class AccountOpeningTradingInfo  implements Serializable{
 	 @Column(name = "trading_Name", nullable = false,length = 100)
 	   	private String tradingName;
 	 
-	
-	 
 	 @Column(name = "post_Code", nullable = false,length = 100)
 	   	private String postCode;
 	
@@ -89,108 +87,74 @@ public class AccountOpeningTradingInfo  implements Serializable{
 	}
 
 
-
 	public void setAccountOpeningTradingInfoId(Long accountOpeningTradingInfoId) {
 		this.accountOpeningTradingInfoId = accountOpeningTradingInfoId;
 	}
-
 
 
 	public String getTradingName() {
 		return tradingName;
 	}
 
-
-
 	public void setTradingName(String tradingName) {
 		this.tradingName = tradingName;
 	}
-
-
 
 	public String getPostCode() {
 		return postCode;
 	}
 
-
-
 	public void setPostCode(String postCode) {
 		this.postCode = postCode;
 	}
-
-
 
 	public String getAddressLineOne() {
 		return addressLineOne;
 	}
 
-
-
 	public void setAddressLineOne(String addressLineOne) {
 		this.addressLineOne = addressLineOne;
 	}
-
-
 
 	public String getAddressLineTwo() {
 		return addressLineTwo;
 	}
 
-
-
 	public void setAddressLineTwo(String addressLineTwo) {
 		this.addressLineTwo = addressLineTwo;
 	}
-
-
 
 	public String getCityTab() {
 		return cityTab;
 	}
 
-
-
 	public void setCityTab(String cityTab) {
 		this.cityTab = cityTab;
 	}
-
-
 
 	public String getStateTab() {
 		return stateTab;
 	}
 
-
-
 	public void setStateTab(String stateTab) {
 		this.stateTab = stateTab;
 	}
-
-
 
 	public String getCountryTab() {
 		return countryTab;
 	}
 
-
-
 	public void setCountryTab(String countryTab) {
 		this.countryTab = countryTab;
 	}
-
-
 
 	public AccountOpeningBusinessInfo getAccountOpeningBusinessInfo() {
 		return accountOpeningBusinessInfo;
 	}
 
-
-
 	public void setAccountOpeningBusinessInfo(AccountOpeningBusinessInfo accountOpeningBusinessInfo) {
 		this.accountOpeningBusinessInfo = accountOpeningBusinessInfo;
 	}
-
-
 
 	@Override
 	public String toString() {
@@ -199,11 +163,5 @@ public class AccountOpeningTradingInfo  implements Serializable{
 				+ ", addressLineTwo=" + addressLineTwo + ", cityTab=" + cityTab + ", stateTab=" + stateTab
 				+ ", countryTab=" + countryTab + ", accountOpeningBusinessInfo=" + accountOpeningBusinessInfo + "]";
 	}
-    
-	
-    
-    
-
-
 
 }

@@ -2,6 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="target/generated-sources/annotations">
 		<attributes>
+<<<<<<< HEAD
 			<attribute name="optional" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
 			<attribute name="ignore_optional_problems" value="true"/>
@@ -38,6 +39,8 @@
 	</classpathentry>
 	<classpathentry kind="src" output="target/test-classes" path="target/generated-test-sources/test-annotations">
 		<attributes>
+=======
+>>>>>>> a4e687003caa0399a91ec4c954d2cf7c0b54ffff
 			<attribute name="optional" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
 			<attribute name="ignore_optional_problems" value="true"/>
