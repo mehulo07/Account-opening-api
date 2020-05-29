@@ -16,8 +16,13 @@ public class PaymentTermsRequest implements Serializable{
 	 * @author rathomoh
 	 */
 	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "request_id",nullable = false)
 	private long requestId;
+	@Column(name = "request_name",nullable = false)
 	private String requestName;
+	@Column(name = "active",nullable = false)
 	private String active;
 	
 	public PaymentTermsRequest() {
@@ -29,23 +34,18 @@ public class PaymentTermsRequest implements Serializable{
 		this.requestName = requestName;
 		this.active = active;
 	}
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "request_id",nullable = false)
 	public long getRequestId() {
 		return requestId;
 	}
 	public void setRequestId(long requestId) {
 		this.requestId = requestId;
 	}
-	@Column(name = "request_name",nullable = false)
 	public String getRequestName() {
 		return requestName;
 	}
 	public void setRequestName(String requestName) {
 		this.requestName = requestName;
 	}
-	@Column(name = "active",nullable = false)
 	public String getActive() {
 		return active;
 	}
