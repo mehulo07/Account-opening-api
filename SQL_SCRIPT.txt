@@ -180,6 +180,24 @@ create table Account_Opening_Directors_Guarantee(
     account_Opening_Business_Info_id number(8) REFERENCES Account_Opening_Business_Info (account_Opening_Business_Info_id)
 );
 
+11>
+Bank Info Tab
+create table customer_bank_info_tab(
+    cust_bank_info_Id varchar(20) not null,
+    cust_name varchar(100),
+    cust_sur_name varchar(100),
+    cust_acc_no varchar(100),
+    cust_sort_code varchar(100),
+    cust_ref varchar(100),
+    cust_bank_name varchar(100),
+    cust_signature BLOB,
+    cust_date date,
+    business_info_id bigint,
+    updated_by varchar(50) not null,
+    updated_on timestamp not null default current_timestamp,
+    primary key(cust_bank_info_Id),
+    foreign key (business_info_id) references account_opening_business_info(account_opening_business_info_id)
+);
 
 
 
