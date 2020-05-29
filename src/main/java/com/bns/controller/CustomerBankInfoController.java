@@ -25,7 +25,7 @@ import com.bns.service.CustomerBankInfoService;
 
 @CrossOrigin()
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/v1/openAccount")
 public class CustomerBankInfoController {
 	private final Logger log = LogManager.getLogger(this.getClass());
 	@Autowired
