@@ -17,56 +17,56 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="account_Opening_Business_Info")
-public class AccountOpeningBusinessInfo  implements Serializable{
+@Table(name = "account_Opening_Business_Info")
+public class AccountOpeningBusinessInfo implements Serializable {
 
 	/**
 	 * @author Hussain Doctor
 	 */
-	
+
 	private static final long serialVersionUID = 1298211974861057016L;
-	
+
 	@Id
-    @Column(name = "account_Opening_Business_Info_id",nullable = false)
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long  accountOpeningBusinessInfoId;
-	
-	 @OneToOne(fetch = FetchType.EAGER, targetEntity = CompanyType.class,cascade = CascadeType.ALL)
-	 @JoinColumn(name = "company_id",columnDefinition="int(15)")
-	 private CompanyType companyType;
-	 
-	 @Column(name = "company_Registration_Number", nullable = false,length = 100)
-	   	private String companyRegistrationNumber;
-	
-	 @Column(name = "company_Registered_Address", nullable = false,length = 200)
-	   	private String companyRegisteredAddress;
-	 
-	 @Column(name = "vat_Number", nullable = false,length = 100)
-	   	private String vatNumber;
-	 
-	 @OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessType.class,cascade = CascadeType.ALL)
-	    @JoinColumn(name = "bussiness_type_id",columnDefinition="int(15)")
-	    private BusinessType businessType;
-	 
-	 @Column(name = "Other_Company_Status", nullable = false,length = 100)
-	   	private String OtherCompanyStatus;
-	 
-	 @Column(name = "company_Reg_Name", nullable = false,length = 100)
-	   	private String companyRegName;
-	
-	 @Temporal(TemporalType.DATE)
-		@Column(name = "date_of_Business_Commenced")
-		private Date dateofBusinessCommenced;
-	 
-	 @Column(name = "Other_Business_ype", nullable = false,length = 100)
-	   	private String OtherBusinessType;
-    
-    @OneToOne(fetch = FetchType.EAGER, targetEntity = AccOpeningReg.class,cascade = CascadeType.ALL)
-    @JoinColumn(name = "ao_pening_Reg_Info_id",columnDefinition="int(15)",nullable = false)
-    private AccOpeningReg accOpeningReg;
+	@Column(name = "account_Opening_Business_Info_id", nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long accountOpeningBusinessInfoId;
+
+	@OneToOne(fetch = FetchType.EAGER, targetEntity = CompanyType.class, cascade = CascadeType.ALL)
+	@JoinColumn(name = "company_id", columnDefinition = "int(15)")
+	private CompanyType companyType;
+
+	@Column(name = "company_Registration_Number", nullable = false, length = 100)
+	private String companyRegistrationNumber;
+
+	@Column(name = "company_Registered_Address", nullable = false, length = 200)
+	private String companyRegisteredAddress;
+
+	@Column(name = "vat_Number", nullable = false, length = 100)
+	private String vatNumber;
+
+	@OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessType.class, cascade = CascadeType.ALL)
+	@JoinColumn(name = "bussiness_type_id", columnDefinition = "int(15)")
+	private BusinessType businessType;
+
+	@Column(name = "Other_Company_Status", length = 100)
+	private String OtherCompanyStatus;
+
+	@Column(name = "company_Reg_Name", nullable = false, length = 100)
+	private String companyRegName;
+
+	@Temporal(TemporalType.DATE)
+	@Column(name = "date_of_Business_Commenced")
+	private Date dateofBusinessCommenced;
+
+	@Column(name = "Other_Business_type", length = 100)
+	private String OtherBusinessType;
+
+	@OneToOne(fetch = FetchType.EAGER, targetEntity = AccOpeningReg.class, cascade = CascadeType.ALL)
+	@JoinColumn(name = "ao_pening_Reg_Info_id", columnDefinition = "int(15)", nullable = false)
+	private AccOpeningReg accOpeningReg;
 
 	public AccountOpeningBusinessInfo() {
-		
+
 		// TODO Auto-generated constructor stub
 	}
 
@@ -74,7 +74,7 @@ public class AccountOpeningBusinessInfo  implements Serializable{
 			String companyRegistrationNumber, String companyRegisteredAddress, String vatNumber,
 			BusinessType businessType, String otherCompanyStatus, String companyRegName, Date dateofBusinessCommenced,
 			String otherBusinessType, AccOpeningReg accOpeningReg) {
-		
+
 		this.accountOpeningBusinessInfoId = accountOpeningBusinessInfoId;
 		this.companyType = companyType;
 		this.companyRegistrationNumber = companyRegistrationNumber;
@@ -185,11 +185,5 @@ public class AccountOpeningBusinessInfo  implements Serializable{
 				+ companyRegName + ", dateofBusinessCommenced=" + dateofBusinessCommenced + ", OtherBusinessType="
 				+ OtherBusinessType + ", accOpeningReg=" + accOpeningReg + "]";
 	}
-	
-    
-    
 
-
-	
-	
 }

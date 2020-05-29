@@ -17,8 +17,13 @@ public class PaymentDeliveryTerms implements Serializable{
 	 * @author rathomoh
 	 */
 	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "deli_terms_id",nullable = false)
 	private long deliveryTermsId;
+	@Column(name = "deli_terms_name",nullable = false)
 	private String deliveryTermsName;
+	@Column(name = "active",nullable = false)
 	private String active;
 	
 	public PaymentDeliveryTerms() {
@@ -30,23 +35,18 @@ public class PaymentDeliveryTerms implements Serializable{
 		this.deliveryTermsName = deliveryTermsName;
 		this.active = active;
 	}
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "deli_terms_id",nullable = false)
 	public long getDeliveryTermsId() {
 		return deliveryTermsId;
 	}
 	public void setDeliveryTermsId(long deliveryTermsId) {
 		this.deliveryTermsId = deliveryTermsId;
 	}
-	@Column(name = "deli_terms_name",nullable = false)
 	public String getDeliveryTermsName() {
 		return deliveryTermsName;
 	}
 	public void setDeliveryTermsName(String deliveryTermsName) {
 		this.deliveryTermsName = deliveryTermsName;
 	}
-	@Column(name = "active",nullable = false)
 	public String getActive() {
 		return active;
 	}

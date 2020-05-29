@@ -16,40 +16,40 @@ public class PaymentMethod implements Serializable{
 	 * @author rathomoh
 	 */
 	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "method_id",nullable = false)
 	private long methodId;
+	@Column(name = "method_name",nullable = false)
 	private String methodName;
+	@Column(name = "active",nullable = false)
 	private String active;
+	public PaymentMethod() {
+		super();
+	}
 	public PaymentMethod(long methodId, String methodName, String active) {
 		super();
 		this.methodId = methodId;
 		this.methodName = methodName;
 		this.active = active;
 	}
-	public PaymentMethod() {
-		super();
-	}
-	@Column(name = "active",nullable = false)
-	public String getActive() {
-		return active;
-	}
-	public void setActive(String active) {
-		this.active = active;
-	}
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "method_id",nullable = false)
 	public long getMethodId() {
 		return methodId;
 	}
 	public void setMethodId(long methodId) {
 		this.methodId = methodId;
 	}
-	@Column(name = "method_name",nullable = false)
 	public String getMethodName() {
 		return methodName;
 	}
 	public void setMethodName(String methodName) {
 		this.methodName = methodName;
+	}
+	public String getActive() {
+		return active;
+	}
+	public void setActive(String active) {
+		this.active = active;
 	}
 	@Override
 	public String toString() {
