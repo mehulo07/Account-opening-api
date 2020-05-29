@@ -16,7 +16,7 @@ import com.bns.service.FinalDeclarationService;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/AccOpeningAPI")
+@RequestMapping("/v1/openAccount")
 public class FinalDeclarationController {
 	
 	@Autowired

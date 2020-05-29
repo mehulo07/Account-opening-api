@@ -13,7 +13,7 @@ import com.bns.service.TradingNameService;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/AccOpeningAPI")
+@RequestMapping("/v1/openAccount")
 public class ExistingAccountInfoController {
 	
 	@Autowired

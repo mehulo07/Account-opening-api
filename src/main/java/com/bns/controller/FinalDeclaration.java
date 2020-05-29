@@ -10,8 +10,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+
 @Entity
 @Table(name="account_Opening_Customer_Final_Declaration")
+@RequestMapping("/v1/openAccount")
 public class FinalDeclaration implements Serializable{
 
 	/**

@@ -22,6 +22,7 @@ import com.bns.model.JwtResponse;
 
 @RestController
 @CrossOrigin
+@RequestMapping("/v1/openAccount")
 public class JwtAuthenticationController {
 
 	@Autowired

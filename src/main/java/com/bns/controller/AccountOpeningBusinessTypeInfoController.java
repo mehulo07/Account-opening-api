@@ -12,19 +12,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bns.exception.ResourceNotFoundException;
-import com.bns.model.AccountOpeningAddressTab;
 import com.bns.model.AccountOpeningBusinessInfo;
 import com.bns.model.AccountOpeningBusinessTypeInfo;
-import com.bns.model.AccountOpeningLinkedAcc;
 import com.bns.repository.AccountOpeningBusinessInfoRepository;
 import com.bns.repository.AccountOpeningBusinessTypeInfoRepository;
 import com.bns.service.AccountOpeningBusinessTypeInfoService;
 
 @RestController
 @CrossOrigin
+@RequestMapping("/v1/openAccount")
 public class AccountOpeningBusinessTypeInfoController {
 	@Autowired
 	private AccountOpeningBusinessInfoRepository accountOpeningBusinessInfoRepository;

@@ -6,6 +6,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,6 +17,7 @@ import com.bns.utility.EncryptionDecryptionUtility;
 @RestController
 @CrossOrigin
 @PropertySource(value = "classpath:cipher.properties" , ignoreResourceNotFound = true)
+@RequestMapping("/v1/openAccount")
 public class EmailController {
 
 	@Autowired
