@@ -15,12 +15,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bns.exception.ResourceNotFoundException;
-import com.bns.model.AccOpeningReg;
+
 import com.bns.model.AccountOpeningAddressTab;
 import com.bns.model.AccountOpeningBusinessInfo;
-import com.bns.model.AccountOpeningLinkedAcc;
-import com.bns.model.BusinessType;
-import com.bns.model.CompanyType;
+
 import com.bns.repository.AccountOpeningAddressTabRepository;
 import com.bns.repository.AccountOpeningBusinessInfoRepository;
 import com.bns.service.AccountOpeningAddressTabService;
