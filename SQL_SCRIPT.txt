@@ -101,7 +101,7 @@ CREATE TABLE  `sarfaraz`.`account_opening_marketing_pref` (
 ) 
 
 8>Payment Methods Master table
-create table account_opening_payment_methods_tab(
+create table payment_methods_master_tab(
     method_Id varchar(20) not null,
     method_Name varchar(100) not null,
     active varchar(100) not null,
@@ -110,13 +110,13 @@ create table account_opening_payment_methods_tab(
     primary key(method_Id)
 );
 
-insert into account_opening_payment_methods_tab values ('1','Bacs','1','rathomoh',sysdate());
-insert into account_opening_payment_methods_tab values ('2','Chaps','1','rathomoh',sysdate());
-insert into account_opening_payment_methods_tab values ('3','Direct Debit','1','rathomoh',sysdate());
-insert into account_opening_payment_methods_tab values ('4','Cheque','1','rathomoh',sysdate());
+insert into payment_methods_master_tab values ('1','Bacs','1','rathomoh',sysdate());
+insert into payment_methods_master_tab values ('2','Chaps','1','rathomoh',sysdate());
+insert into payment_methods_master_tab values ('3','Direct Debit','1','rathomoh',sysdate());
+insert into payment_methods_master_tab values ('4','Cheque','1','rathomoh',sysdate());
 
 9>Payment Terms Request tab
-create table account_opening_payment_terms_req_tab(
+create table payment_terms_req_master_tab(
     request_id varchar(20) not null,
     request_name varchar(100) not null,
     active varchar(100) not null,
@@ -125,13 +125,13 @@ create table account_opening_payment_terms_req_tab(
     primary key(request_id)
 );
 
-insert into account_opening_payment_terms_req_tab values ('1','Upfront','1','rathomoh',sysdate());
-insert into account_opening_payment_terms_req_tab values ('2','30 Days','1','rathomoh',sysdate());
-insert into account_opening_payment_terms_req_tab values ('3','60 Days','1','rathomoh',sysdate());
+insert into payment_terms_req_master_tab values ('1','Upfront','1','rathomoh',sysdate());
+insert into payment_terms_req_master_tab values ('2','30 Days','1','rathomoh',sysdate());
+insert into payment_terms_req_master_tab values ('3','60 Days','1','rathomoh',sysdate());
 
 
 10>Prefered delivery terms tab
-create table account_opening_payment_deli_terms_tab(
+create table payment_deli_terms_master_tab(
     deli_terms_id varchar(20) not null,
     deli_terms_name varchar(100) not null,
     active varchar(100) not null,
@@ -140,9 +140,9 @@ create table account_opening_payment_deli_terms_tab(
     primary key(deli_terms_id)
 );
 
-insert into account_opening_payment_deli_terms_tab values ('1','PRE 12.00 PM','1','rathomoh',sysdate());
-insert into account_opening_payment_deli_terms_tab values ('2','PRE 10.30 AM','1','rathomoh',sysdate());
-insert into account_opening_payment_deli_terms_tab values ('3','PRE 09.00 AM','1','rathomoh',sysdate());
+insert into payment_deli_terms_master_tab values ('1','PRE 12.00 PM','1','rathomoh',sysdate());
+insert into payment_deli_terms_master_tab values ('2','PRE 10.30 AM','1','rathomoh',sysdate());
+insert into payment_deli_terms_master_tab values ('3','PRE 09.00 AM','1','rathomoh',sysdate());
 
 
 

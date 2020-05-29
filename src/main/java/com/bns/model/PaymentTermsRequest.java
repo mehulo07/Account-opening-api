@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="account_opening_payment_terms_req_tab")
+@Table(name="payment_terms_req_master_tab")
 public class PaymentTermsRequest implements Serializable{
 	/**
 	 * @author rathomoh

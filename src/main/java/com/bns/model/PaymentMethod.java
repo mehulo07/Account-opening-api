@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="account_opening_payment_methods_tab")
+@Table(name="payment_methods_master_tab")
 public class PaymentMethod implements Serializable{
 	/**
 	 * @author rathomoh
