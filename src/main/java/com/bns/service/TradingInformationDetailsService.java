@@ -6,14 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bns.exception.ResourceNotFoundException;
-import com.bns.model.AccountOpeningAddressTab;
-import com.bns.model.AccountOpeningBusinessInfo;
+import com.bns.model.AccountAddressTab;
+import com.bns.model.BusinessInfo;
 import com.bns.model.BusinessBuyingGroup;
 import com.bns.model.BusinessOrderSystem;
 import com.bns.model.BusinessPmr;
 import com.bns.model.BusinessSupplier;
 import com.bns.model.TradingInformationDetails;
-import com.bns.repository.AccountOpeningBusinessInfoRepository;
+import com.bns.repository.BusinessInfoRepository;
 import com.bns.repository.BusinessBuyingGroupRepository;
 import com.bns.repository.BusinessOrderSystemRepository;
 import com.bns.repository.BusinessPmrRepository;
@@ -24,7 +24,7 @@ import com.bns.repository.TradingInformationDetailsRepository;
 public class TradingInformationDetailsService {
 
 	@Autowired
-	private AccountOpeningBusinessInfoRepository accountOpeningBusinessInfoRepository;
+	private BusinessInfoRepository accountOpeningBusinessInfoRepository;
 	@Autowired
 	private TradingInformationDetailsRepository tradingInformationDetailsRepository;
 	@Autowired
@@ -55,7 +55,7 @@ public class TradingInformationDetailsService {
 
 		long businessinfoid = tradingInformationDetails.getAccountOpeningBusinessInfo()
 				.getAccountOpeningBusinessInfoId();
-		AccountOpeningBusinessInfo accountOpeningBusinessInfo = accountOpeningBusinessInfoRepository
+		BusinessInfo accountOpeningBusinessInfo = accountOpeningBusinessInfoRepository
 				.findById(businessinfoid).get();
 		tradingInformationDetails1.setAccountOpeningBusinessInfo(accountOpeningBusinessInfo);
 		long suppierid = tradingInformationDetails.getBusinessSupplier().getBusinessSupplierId();

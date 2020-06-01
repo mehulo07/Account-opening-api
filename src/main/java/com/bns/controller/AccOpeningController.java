@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bns.model.AccOpeningReg;
-import com.bns.service.AccOpeningEmailInfoService;
-import com.bns.service.AccOpeningRegService;
+import com.bns.model.Registration;
+import com.bns.service.EmailInfoService;
+import com.bns.service.RegistrationService;
 
 @RestController
 @CrossOrigin
@@ -17,13 +17,13 @@ import com.bns.service.AccOpeningRegService;
 public class AccOpeningController {
 
 	@Autowired
-	private AccOpeningRegService accOpeningRegService;
+	private RegistrationService accOpeningRegService;
 
 	@Autowired
-	private AccOpeningEmailInfoService accOpeningEmailInfoService;
+	private EmailInfoService accOpeningEmailInfoService;
 
 	@PostMapping("/")
-	public String accOpeningForm(@RequestBody AccOpeningReg accOpeningReg) throws Exception {
+	public String accOpeningForm(@RequestBody Registration accOpeningReg) throws Exception {
 		System.out.println("inisde accOpeningForm");
 		System.out.println("Added by hussain 1");
 		return accOpeningRegService.createAccount(accOpeningReg);

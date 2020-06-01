@@ -82,9 +82,9 @@ public class LicenceInformationDetailsTwo implements Serializable {
 	@Column(name = "gmp_No", columnDefinition = "TINYINT(1)")
 	private Boolean gmpNo;
 
-	@OneToOne(fetch = FetchType.EAGER, targetEntity = AccountOpeningBusinessInfo.class, cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessInfo.class, cascade = CascadeType.ALL)
 	@JoinColumn(name = "account_Opening_Business_Info_id", columnDefinition = "int(15)", nullable = false)
-	private AccountOpeningBusinessInfo accountOpeningBusinessInfo;
+	private BusinessInfo accountOpeningBusinessInfo;
 
 	public LicenceInformationDetailsTwo() {
 
@@ -96,7 +96,7 @@ public class LicenceInformationDetailsTwo implements Serializable {
 			Date gdpLicenseReleasingDate, Date gdpLicenseExpiryDate, String gdpNameofIssuingAuthority,
 			String gdpCounrtyLicenseIssuing, Boolean gdpNo, Date gmpLicenseReleasingDate, Date gmpLicenseExpiryDate,
 			String gmpNameofIssuingAuthority, String gmpCounrtyLicenseIssuing, Boolean gmpNo,
-			AccountOpeningBusinessInfo accountOpeningBusinessInfo) {
+			BusinessInfo accountOpeningBusinessInfo) {
 		super();
 		this.licenceInformationDetailsTwoId = licenceInformationDetailsTwoId;
 		this.msLicenseReleasingDate = msLicenseReleasingDate;
@@ -245,11 +245,11 @@ public class LicenceInformationDetailsTwo implements Serializable {
 		this.gmpNo = gmpNo;
 	}
 
-	public AccountOpeningBusinessInfo getAccountOpeningBusinessInfo() {
+	public BusinessInfo getAccountOpeningBusinessInfo() {
 		return accountOpeningBusinessInfo;
 	}
 
-	public void setAccountOpeningBusinessInfo(AccountOpeningBusinessInfo accountOpeningBusinessInfo) {
+	public void setAccountOpeningBusinessInfo(BusinessInfo accountOpeningBusinessInfo) {
 		this.accountOpeningBusinessInfo = accountOpeningBusinessInfo;
 	}
 

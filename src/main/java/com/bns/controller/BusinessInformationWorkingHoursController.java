@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bns.exception.ResourceNotFoundException;
-import com.bns.model.AccountOpeningBusinessInfo;
+import com.bns.model.BusinessInfo;
 import com.bns.model.BusinessInformationWorkingHours;
 import com.bns.model.LicenceInformationDetailsOne;
-import com.bns.repository.AccountOpeningBusinessInfoRepository;
+import com.bns.repository.BusinessInfoRepository;
 import com.bns.repository.BusinessInformationWorkingHoursRepository;
 import com.bns.repository.LicenceInformationDetailsOneRepository;
 import com.bns.service.BusinessInformationWorkingHoursService;
@@ -28,7 +28,7 @@ import com.bns.service.LicenceInformationDetailsOneService;
 @CrossOrigin
 public class BusinessInformationWorkingHoursController {
 	@Autowired
-	private AccountOpeningBusinessInfoRepository accountOpeningBusinessInfoRepository;
+	private BusinessInfoRepository accountOpeningBusinessInfoRepository;
 
 	@Autowired
 	private BusinessInformationWorkingHoursRepository businessInformationWorkingHoursRepository;
@@ -42,7 +42,7 @@ public class BusinessInformationWorkingHoursController {
 
 		long businessinfoid = businessInformationWorkingHours.getAccountOpeningBusinessInfo()
 				.getAccountOpeningBusinessInfoId();
-		AccountOpeningBusinessInfo accountOpeningBusinessInfo = accountOpeningBusinessInfoRepository
+		BusinessInfo accountOpeningBusinessInfo = accountOpeningBusinessInfoRepository
 				.findById(businessinfoid).get();
 		businessInformationWorkingHours.setAccountOpeningBusinessInfo(accountOpeningBusinessInfo);
 

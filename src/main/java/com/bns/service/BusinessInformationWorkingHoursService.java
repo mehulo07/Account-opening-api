@@ -6,16 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bns.exception.ResourceNotFoundException;
-import com.bns.model.AccountOpeningBusinessInfo;
+import com.bns.model.BusinessInfo;
 import com.bns.model.BusinessInformationWorkingHours;
 
-import com.bns.repository.AccountOpeningBusinessInfoRepository;
+import com.bns.repository.BusinessInfoRepository;
 import com.bns.repository.BusinessInformationWorkingHoursRepository;
 
 @Service
 public class BusinessInformationWorkingHoursService {
 	@Autowired
-	private AccountOpeningBusinessInfoRepository accountOpeningBusinessInfoRepository;
+	private BusinessInfoRepository accountOpeningBusinessInfoRepository;
 	@Autowired
 	private BusinessInformationWorkingHoursRepository businessInformationWorkingHoursRepository;
 
@@ -38,7 +38,7 @@ public class BusinessInformationWorkingHoursService {
 
 		long businessinfoid = businessInformationWorkingHours.getAccountOpeningBusinessInfo()
 				.getAccountOpeningBusinessInfoId();
-		AccountOpeningBusinessInfo accountOpeningBusinessInfo = accountOpeningBusinessInfoRepository
+		BusinessInfo accountOpeningBusinessInfo = accountOpeningBusinessInfoRepository
 				.findById(businessinfoid).get();
 		businessInformationWorkingHours1.setAccountOpeningBusinessInfo(accountOpeningBusinessInfo);
 

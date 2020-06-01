@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bns.exception.ResourceNotFoundException;
-import com.bns.model.AccountOpeningAddressTab;
-import com.bns.model.AccountOpeningBusinessInfo;
+import com.bns.model.AccountAddressTab;
+import com.bns.model.BusinessInfo;
 import com.bns.model.BusinessBuyingGroup;
 import com.bns.model.BusinessOrderSystem;
 import com.bns.model.BusinessPmr;
 import com.bns.model.BusinessSupplier;
 import com.bns.model.TradingInformationDetails;
-import com.bns.repository.AccountOpeningBusinessInfoRepository;
+import com.bns.repository.BusinessInfoRepository;
 import com.bns.repository.BusinessBuyingGroupRepository;
 import com.bns.repository.BusinessOrderSystemRepository;
 import com.bns.repository.BusinessPmrRepository;
@@ -35,7 +35,7 @@ import com.bns.service.TradingInformationDetailsService;
 public class TradingInformationDetailsController {
 
 	@Autowired
-	private AccountOpeningBusinessInfoRepository accountOpeningBusinessInfoRepository;
+	private BusinessInfoRepository accountOpeningBusinessInfoRepository;
 
 	@Autowired
 	private TradingInformationDetailsRepository tradingInformationDetailsRepository;
@@ -57,7 +57,7 @@ public class TradingInformationDetailsController {
 
 		long businessinfoid = tradingInformationDetails.getAccountOpeningBusinessInfo()
 				.getAccountOpeningBusinessInfoId();
-		AccountOpeningBusinessInfo accountOpeningBusinessInfo = accountOpeningBusinessInfoRepository
+		BusinessInfo accountOpeningBusinessInfo = accountOpeningBusinessInfoRepository
 				.findById(businessinfoid).get();
 		tradingInformationDetails.setAccountOpeningBusinessInfo(accountOpeningBusinessInfo);
 

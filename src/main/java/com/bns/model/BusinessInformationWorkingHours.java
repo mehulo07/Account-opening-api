@@ -27,9 +27,9 @@ public class BusinessInformationWorkingHours implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long licenceInformationDetailsTwoId;
 
-	@OneToOne(fetch = FetchType.EAGER, targetEntity = AccountOpeningBusinessInfo.class, cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessInfo.class, cascade = CascadeType.ALL)
 	@JoinColumn(name = "account_Opening_Business_Info_id", columnDefinition = "int(15)", nullable = false)
-	private AccountOpeningBusinessInfo accountOpeningBusinessInfo;
+	private BusinessInfo accountOpeningBusinessInfo;
 
 	@Column(name = "working_Hours_Comment", length = 200)
 	private String workingHoursComment;
@@ -72,7 +72,7 @@ public class BusinessInformationWorkingHours implements Serializable {
 	}
 
 	public BusinessInformationWorkingHours(Long licenceInformationDetailsTwoId,
-			AccountOpeningBusinessInfo accountOpeningBusinessInfo, String workingHoursComment, String monOpeningHours,
+			BusinessInfo accountOpeningBusinessInfo, String workingHoursComment, String monOpeningHours,
 			String tueOpeningHours, String wedOpeningHours, String thuOpeningHours, String friOpeningHours,
 			String satOpeningHours, String moncloseHours, String tueCloseHours, String wedCloseHours,
 			String thuCloseHours, String friCloseHours, String satCloseHours, Boolean termCondition) {
@@ -103,11 +103,11 @@ public class BusinessInformationWorkingHours implements Serializable {
 		this.licenceInformationDetailsTwoId = licenceInformationDetailsTwoId;
 	}
 
-	public AccountOpeningBusinessInfo getAccountOpeningBusinessInfo() {
+	public BusinessInfo getAccountOpeningBusinessInfo() {
 		return accountOpeningBusinessInfo;
 	}
 
-	public void setAccountOpeningBusinessInfo(AccountOpeningBusinessInfo accountOpeningBusinessInfo) {
+	public void setAccountOpeningBusinessInfo(BusinessInfo accountOpeningBusinessInfo) {
 		this.accountOpeningBusinessInfo = accountOpeningBusinessInfo;
 	}
 

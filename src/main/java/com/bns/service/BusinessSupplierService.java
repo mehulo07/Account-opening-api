@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bns.exception.ResourceNotFoundException;
-import com.bns.model.AccountOpeningMarketingPref;
+import com.bns.model.MarketingPref;
 import com.bns.model.BusinessSupplier;
 import com.bns.repository.BusinessSupplierRepository;
 

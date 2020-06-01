@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bns.exception.ResourceNotFoundException;
-import com.bns.model.AccOpeningReg;
-import com.bns.model.AccountOpeningMarketingPref;
-import com.bns.model.AccountOpeningSecurityQue;
+import com.bns.model.Registration;
+import com.bns.model.MarketingPref;
+import com.bns.model.SecurityQue;
 import com.bns.model.SecurityQuestion;
-import com.bns.repository.AccOpeningRegRepository;
-import com.bns.service.AccountOpeningSecurityQueService;
+import com.bns.repository.RegistrationRepository;
+import com.bns.service.SecurityQueService;
 import com.bns.service.SecurityQuestionService;
 
 @RestController
@@ -31,10 +31,10 @@ public class SecurityQuestionController {
 	private SecurityQuestionService securityQuestionService;
 
 	@Autowired
-	private AccountOpeningSecurityQueService accountOpeningSecurityQueService;
+	private SecurityQueService accountOpeningSecurityQueService;
 
 	@Autowired
-	private AccOpeningRegRepository accOpeningRegRepository;
+	private RegistrationRepository accOpeningRegRepository;
 
 	// securityQuestion creation
 	@PostMapping("/securityQuestion")
@@ -50,12 +50,12 @@ public class SecurityQuestionController {
 	}
 
 	@PostMapping("/securityQuestionAnswer")
-	public AccountOpeningSecurityQue saveQuestionAndAns(
-			@Valid @RequestBody AccountOpeningSecurityQue accountOpeningSecurityQue) throws Exception {
+	public SecurityQue saveQuestionAndAns(
+			@Valid @RequestBody SecurityQue accountOpeningSecurityQue) throws Exception {
 
 		int reg = accountOpeningSecurityQue.getAccOpeningReg().getAccountOpeningRegInfoId();
 
-		AccOpeningReg accOpeningReg = accOpeningRegRepository.findById(reg).get();
+		Registration accOpeningReg = accOpeningRegRepository.findById(reg).get();
 
 		accountOpeningSecurityQue.setAccOpeningReg(accOpeningReg);
 		return accountOpeningSecurityQueService.createAccountOpeningSecurityQue(accountOpeningSecurityQue);

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bns.service.AccOpeningEmailInfoService;
+import com.bns.service.EmailInfoService;
 import com.bns.service.EmailService;
 import com.bns.utility.EncryptionDecryptionUtility;
 
@@ -21,7 +21,7 @@ import com.bns.utility.EncryptionDecryptionUtility;
 public class EmailController {
 
 	@Autowired
-	private AccOpeningEmailInfoService accOpeningEmailInfoService;
+	private EmailInfoService accOpeningEmailInfoService;
 
 	@Autowired
 	private EmailService emailService;

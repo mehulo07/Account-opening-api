@@ -7,15 +7,15 @@ import org.springframework.stereotype.Service;
 
 import com.bns.exception.ResourceNotFoundException;
 
-import com.bns.model.AccountOpeningBusinessInfo;
+import com.bns.model.BusinessInfo;
 import com.bns.model.LicenceInformationDetailsOne;
-import com.bns.repository.AccountOpeningBusinessInfoRepository;
+import com.bns.repository.BusinessInfoRepository;
 import com.bns.repository.LicenceInformationDetailsOneRepository;
 
 @Service
 public class LicenceInformationDetailsOneService {
 	@Autowired
-	private AccountOpeningBusinessInfoRepository accountOpeningBusinessInfoRepository;
+	private BusinessInfoRepository accountOpeningBusinessInfoRepository;
 	@Autowired
 	private LicenceInformationDetailsOneRepository licenceInformationDetailsOneRepository;
 
@@ -37,7 +37,7 @@ public class LicenceInformationDetailsOneService {
 
 		long businessinfoid = licenceInformationDetailsOne.getAccountOpeningBusinessInfo()
 				.getAccountOpeningBusinessInfoId();
-		AccountOpeningBusinessInfo accountOpeningBusinessInfo = accountOpeningBusinessInfoRepository
+		BusinessInfo accountOpeningBusinessInfo = accountOpeningBusinessInfoRepository
 				.findById(businessinfoid).get();
 		licenceInformationDetailsOne1.setAccountOpeningBusinessInfo(accountOpeningBusinessInfo);
 

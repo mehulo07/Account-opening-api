@@ -28,9 +28,9 @@ public class TradingInformationDetails implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long tradingInformationDetailsId;
 
-	@OneToOne(fetch = FetchType.EAGER, targetEntity = AccountOpeningBusinessInfo.class, cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessInfo.class, cascade = CascadeType.ALL)
 	@JoinColumn(name = "account_Opening_Business_Info_id", columnDefinition = "int(15)", nullable = false)
-	private AccountOpeningBusinessInfo accountOpeningBusinessInfo;
+	private BusinessInfo accountOpeningBusinessInfo;
 
 	@Column(name = "telephone_Number", nullable = false, length = 45)
 	private String telephoneNumber;
@@ -73,7 +73,7 @@ public class TradingInformationDetails implements Serializable {
 	}
 
 	public TradingInformationDetails(Long tradingInformationDetailsId,
-			AccountOpeningBusinessInfo accountOpeningBusinessInfo, String telephoneNumber, String faxNumber,
+			BusinessInfo accountOpeningBusinessInfo, String telephoneNumber, String faxNumber,
 			String websiteurl, String buyerName, String moblieNo, String emailAdd, String otherContactName,
 			BusinessSupplier businessSupplier, BusinessPmr businessPmr, BusinessBuyingGroup businessBuyingGroup,
 			BusinessOrderSystem businessOrderSystem) {
@@ -101,11 +101,11 @@ public class TradingInformationDetails implements Serializable {
 		this.tradingInformationDetailsId = tradingInformationDetailsId;
 	}
 
-	public AccountOpeningBusinessInfo getAccountOpeningBusinessInfo() {
+	public BusinessInfo getAccountOpeningBusinessInfo() {
 		return accountOpeningBusinessInfo;
 	}
 
-	public void setAccountOpeningBusinessInfo(AccountOpeningBusinessInfo accountOpeningBusinessInfo) {
+	public void setAccountOpeningBusinessInfo(BusinessInfo accountOpeningBusinessInfo) {
 		this.accountOpeningBusinessInfo = accountOpeningBusinessInfo;
 	}
 
