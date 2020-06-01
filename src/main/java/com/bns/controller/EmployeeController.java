@@ -26,7 +26,7 @@ import com.bns.service.EmployeeService;
 
 @CrossOrigin()
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/v1/openAccount")
 public class EmployeeController {
 	private final Logger log = LogManager.getLogger(this.getClass());
 	@Autowired
