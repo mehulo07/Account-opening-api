@@ -15,12 +15,12 @@ import com.bns.exception.ResourceNotFoundException;
 import com.bns.model.Registration;
 import com.bns.model.BusinessInfo;
 import com.bns.model.LinkedAccount;
-import com.bns.model.BusinessType;
-import com.bns.model.CompanyType;
+import com.bns.model.BusinessTypeMaster;
+import com.bns.model.CompanyTypeMaster;
 import com.bns.repository.RegistrationRepository;
 import com.bns.repository.BusinessInfoRepository;
-import com.bns.repository.BusinessTypeRepository;
-import com.bns.repository.CompanyTypeRepository;
+import com.bns.repository.BusinessTypeMasterRepository;
+import com.bns.repository.CompanyTypeMasterRepository;
 
 @Service
 public class BusinessInfoService {
@@ -32,9 +32,9 @@ public class BusinessInfoService {
     private RegistrationRepository accOpeningRegRepository;
 	
 	@Autowired
-    private BusinessTypeRepository businessTypeRepository;
+    private BusinessTypeMasterRepository businessTypeRepository;
 	@Autowired
-    private CompanyTypeRepository companyTypeRepository;
+    private CompanyTypeMasterRepository companyTypeRepository;
 	
 	
 	
@@ -56,11 +56,11 @@ public class BusinessInfoService {
 			accountOpeningBusinessInfo1.setAccOpeningReg(accOpeningReg);
 			
 			long businessTypeid=accountOpeningBusinessInfo.getBusinessType().getBusinessTypeId();
-			BusinessType businessType=businessTypeRepository.findById(businessTypeid).get();
+			BusinessTypeMaster businessType=businessTypeRepository.findById(businessTypeid).get();
 			accountOpeningBusinessInfo1.setBusinessType(businessType);
 			
 			long companyid=accountOpeningBusinessInfo.getCompanyType().getCompanyId();
-			CompanyType companyType=companyTypeRepository.findById(companyid).get();
+			CompanyTypeMaster companyType=companyTypeRepository.findById(companyid).get();
 			accountOpeningBusinessInfo1.setCompanyType(companyType);
 			
 			accountOpeningBusinessInfo1.setCompanyRegisteredAddress(accountOpeningBusinessInfo.getCompanyRegisteredAddress());

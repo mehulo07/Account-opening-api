@@ -19,12 +19,12 @@ import com.bns.exception.ResourceNotFoundException;
 import com.bns.model.Registration;
 import com.bns.model.BusinessInfo;
 import com.bns.model.LinkedAccount;
-import com.bns.model.BusinessType;
-import com.bns.model.CompanyType;
+import com.bns.model.BusinessTypeMaster;
+import com.bns.model.CompanyTypeMaster;
 import com.bns.repository.RegistrationRepository;
 import com.bns.repository.BusinessInfoRepository;
-import com.bns.repository.BusinessTypeRepository;
-import com.bns.repository.CompanyTypeRepository;
+import com.bns.repository.BusinessTypeMasterRepository;
+import com.bns.repository.CompanyTypeMasterRepository;
 import com.bns.service.BusinessInfoService;
 
 @RestController
@@ -41,9 +41,9 @@ public class BusinessInfoController {
 	private BusinessInfoService accountOpeningBusinessInfoService;
 
 	@Autowired
-	private BusinessTypeRepository businessTypeRepository;
+	private BusinessTypeMasterRepository businessTypeRepository;
 	@Autowired
-	private CompanyTypeRepository companyTypeRepository;
+	private CompanyTypeMasterRepository companyTypeRepository;
 
 	@PostMapping("/accountOpeningBusinessInfo")
 	public BusinessInfo accountOpeningBusinessInfoSave(
@@ -54,11 +54,11 @@ public class BusinessInfoController {
 		accountOpeningBusinessInfo.setAccOpeningReg(accOpeningReg);
 
 		long businessTypeid = accountOpeningBusinessInfo.getBusinessType().getBusinessTypeId();
-		BusinessType businessType = businessTypeRepository.findById(businessTypeid).get();
+		BusinessTypeMaster businessType = businessTypeRepository.findById(businessTypeid).get();
 		accountOpeningBusinessInfo.setBusinessType(businessType);
 
 		long companyid = accountOpeningBusinessInfo.getCompanyType().getCompanyId();
-		CompanyType companyType = companyTypeRepository.findById(companyid).get();
+		CompanyTypeMaster companyType = companyTypeRepository.findById(companyid).get();
 		accountOpeningBusinessInfo.setCompanyType(companyType);
 
 		return accountOpeningBusinessInfoService.createAccountOpeningBusinessInfoc(accountOpeningBusinessInfo);

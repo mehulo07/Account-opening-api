@@ -9,39 +9,39 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bns.exception.ResourceNotFoundException;
-import com.bns.model.PaymentDeliveryTerms;
-import com.bns.model.PaymentMethod;
+import com.bns.model.PaymentDeliveryTermsMaster;
+import com.bns.model.PaymentMethodMaster;
 import com.bns.model.PaymentMethodInfo;
-import com.bns.model.PaymentTermsRequest;
-import com.bns.repository.PaymentDeliveryTermsRepository;
+import com.bns.model.PaymentTermsRequestMaster;
+import com.bns.repository.PaymentDeliveryTermsMasterRepository;
 import com.bns.repository.PaymentMethodInfoRepository;
-import com.bns.repository.PaymentMethodRepository;
-import com.bns.repository.PaymentTermsRequestRepository;
+import com.bns.repository.PaymentMethodMasterRepository;
+import com.bns.repository.PaymentTermsRequestMasterRepository;
 
 @Service
 public class PaymentService {
 	
 	@Autowired
-	private PaymentMethodRepository paymentMethodRepository;
+	private PaymentMethodMasterRepository paymentMethodRepository;
 	
 	@Autowired
-	private PaymentTermsRequestRepository paymentTermsRequestRepository;
+	private PaymentTermsRequestMasterRepository paymentTermsRequestRepository;
 	
 	@Autowired
-	private PaymentDeliveryTermsRepository paymentDeliveryTermsRepository;
+	private PaymentDeliveryTermsMasterRepository paymentDeliveryTermsRepository;
 	
 	@Autowired
 	private PaymentMethodInfoRepository paymentMethodInfoRepository;
 
-	public List<PaymentMethod> getAllPaymentMethod() {
+	public List<PaymentMethodMaster> getAllPaymentMethod() {
 		return paymentMethodRepository.findAll();
 	}
 
-	public List<PaymentTermsRequest> getAllTermsReq() {
+	public List<PaymentTermsRequestMaster> getAllTermsReq() {
 		return paymentTermsRequestRepository.findAll();
 	}
 	
-	public List<PaymentDeliveryTerms> getAllDeliveryTerms(){
+	public List<PaymentDeliveryTermsMaster> getAllDeliveryTerms(){
 		return paymentDeliveryTermsRepository.findAll();
 	}
 	public String createPaymentMethodInfo(PaymentMethodInfo paymentMethodInfo) {

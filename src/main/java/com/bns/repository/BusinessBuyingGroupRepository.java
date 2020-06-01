@@ -7,14 +7,14 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.bns.model.BusinessBuyingGroup;
+import com.bns.model.BusinessBuyingGroupMaster;
 
 
 
 @Repository
-public interface BusinessBuyingGroupRepository extends JpaRepository <BusinessBuyingGroup, Long >{
+public interface BusinessBuyingGroupRepository extends JpaRepository <BusinessBuyingGroupMaster, Long >{
 
 	
 	@Query("from BusinessBuyingGroup a join a.businessType c where c.businessTypeId=:businessTypeId")
-    public List<BusinessBuyingGroup> findByBusinessTypeID(@Param("businessTypeId")Long businessTypeId);
+    public List<BusinessBuyingGroupMaster> findByBusinessTypeID(@Param("businessTypeId")Long businessTypeId);
 }

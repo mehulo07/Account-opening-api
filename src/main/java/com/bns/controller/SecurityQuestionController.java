@@ -17,10 +17,10 @@ import com.bns.exception.ResourceNotFoundException;
 import com.bns.model.Registration;
 import com.bns.model.MarketingPref;
 import com.bns.model.SecurityQue;
-import com.bns.model.SecurityQuestion;
+import com.bns.model.SecurityQuestionMaster;
 import com.bns.repository.RegistrationRepository;
 import com.bns.service.SecurityQueService;
-import com.bns.service.SecurityQuestionService;
+import com.bns.service.SecurityQuestionMasterService;
 
 @RestController
 @CrossOrigin
@@ -28,7 +28,7 @@ import com.bns.service.SecurityQuestionService;
 public class SecurityQuestionController {
 
 	@Autowired
-	private SecurityQuestionService securityQuestionService;
+	private SecurityQuestionMasterService securityQuestionService;
 
 	@Autowired
 	private SecurityQueService accountOpeningSecurityQueService;
@@ -38,14 +38,14 @@ public class SecurityQuestionController {
 
 	// securityQuestion creation
 	@PostMapping("/securityQuestion")
-	public SecurityQuestion createSecurityQuestion(@Valid @RequestBody SecurityQuestion securityQuestion) {
+	public SecurityQuestionMaster createSecurityQuestion(@Valid @RequestBody SecurityQuestionMaster securityQuestion) {
 		System.out.println("inisde Security Question creation");
 		return securityQuestionService.createSecurityQuestion(securityQuestion);
 	}
 
 	// securityQuestion getAll List Value
 	@GetMapping("/securityQuestion")
-	public List<SecurityQuestion> getquestionList() {
+	public List<SecurityQuestionMaster> getquestionList() {
 		return securityQuestionService.getAllSecurityQuestion();
 	}
 

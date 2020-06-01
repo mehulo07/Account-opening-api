@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bns.exception.ResourceNotFoundException;
-import com.bns.model.AccountAddressTab;
+import com.bns.model.AccountAddress;
 import com.bns.model.BusinessInfo;
 import com.bns.model.DirectorInfo;
 import com.bns.repository.BusinessInfoRepository;

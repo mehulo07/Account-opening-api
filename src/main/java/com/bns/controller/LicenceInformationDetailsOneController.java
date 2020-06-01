@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bns.exception.ResourceNotFoundException;
-import com.bns.model.AccountAddressTab;
+import com.bns.model.AccountAddress;
 import com.bns.model.BusinessInfo;
 import com.bns.model.LicenceInformationDetailsOne;
 import com.bns.repository.BusinessInfoRepository;

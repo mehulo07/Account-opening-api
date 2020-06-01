@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bns.exception.ResourceNotFoundException;
-import com.bns.model.BusinessBuyingGroup;
+import com.bns.model.BusinessBuyingGroupMaster;
 
-import com.bns.model.BusinessType;
+import com.bns.model.BusinessTypeMaster;
 import com.bns.repository.BusinessBuyingGroupRepository;
-import com.bns.repository.BusinessTypeRepository;
+import com.bns.repository.BusinessTypeMasterRepository;
 import com.bns.service.BusinessBuyingGroupService;
 
 @RestController
@@ -28,7 +28,7 @@ import com.bns.service.BusinessBuyingGroupService;
 public class BusinessBuyingGroupController {
 
 	@Autowired
-	private BusinessTypeRepository businessTypeRepository;
+	private BusinessTypeMasterRepository businessTypeRepository;
 	@Autowired
 	private BusinessBuyingGroupRepository businessBuyingGroupRepository;
 	@Autowired
@@ -36,12 +36,12 @@ public class BusinessBuyingGroupController {
 
 	// Business Buying Group creation
 	@PostMapping("/businessBuyingGroup")
-	public BusinessBuyingGroup createBusinessBuyingGroup(@Valid @RequestBody BusinessBuyingGroup businessBuyingGroup)
+	public BusinessBuyingGroupMaster createBusinessBuyingGroup(@Valid @RequestBody BusinessBuyingGroupMaster businessBuyingGroup)
 			throws Exception {
 
 		Long businessTypeid = businessBuyingGroup.getBusinessType().getBusinessTypeId();
 
-		BusinessType businessType = businessTypeRepository.findById(businessTypeid).get();
+		BusinessTypeMaster businessType = businessTypeRepository.findById(businessTypeid).get();
 		businessBuyingGroup.setBusinessType(businessType);
 
 		return businessBuyingGroupService.createBusinessBuyingGroup(businessBuyingGroup);
@@ -50,15 +50,15 @@ public class BusinessBuyingGroupController {
 
 	// Business Buying Group getAll List Value by BusinessTypeID
 	@GetMapping("/businessBuyingGroupBusinessTypeID/{id}")
-	public List<BusinessBuyingGroup> getbusinessBuyingGroupBusinessTypeID(
+	public List<BusinessBuyingGroupMaster> getbusinessBuyingGroupBusinessTypeID(
 			@PathVariable(value = "id") Long businessTypeID) throws Exception {
 		return businessBuyingGroupRepository.findByBusinessTypeID(businessTypeID);
 	}
 
 	@GetMapping("/businessBuyingGroup/{id}")
-	public ResponseEntity<BusinessBuyingGroup> businessBuyingGroupList(
+	public ResponseEntity<BusinessBuyingGroupMaster> businessBuyingGroupList(
 			@PathVariable(value = "id") Long businessBuyingGroupId) throws ResourceNotFoundException {
-		BusinessBuyingGroup businessBuyingGroup = businessBuyingGroupService
+		BusinessBuyingGroupMaster businessBuyingGroup = businessBuyingGroupService
 				.getBusinessBuyingGroupId(businessBuyingGroupId).orElseThrow(() -> new ResourceNotFoundException(
 						"Business Buying Group not found for this id :: " + businessBuyingGroupId));
 		return ResponseEntity.ok().body(businessBuyingGroup);

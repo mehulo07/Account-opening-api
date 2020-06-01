@@ -21,10 +21,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bns.exception.ResourceNotFoundException;
-import com.bns.model.PaymentDeliveryTerms;
-import com.bns.model.PaymentMethod;
+import com.bns.model.PaymentDeliveryTermsMaster;
+import com.bns.model.PaymentMethodMaster;
 import com.bns.model.PaymentMethodInfo;
-import com.bns.model.PaymentTermsRequest;
+import com.bns.model.PaymentTermsRequestMaster;
 import com.bns.service.PaymentService;
 
 @CrossOrigin()
@@ -36,17 +36,17 @@ public class PaymentController {
 	private PaymentService paymentService;
 	
 	@GetMapping("/paymentMethod")
-	public List<PaymentMethod> getAllPaymentMethod(){
+	public List<PaymentMethodMaster> getAllPaymentMethod(){
 		return paymentService.getAllPaymentMethod();
 	}
 	
 	@GetMapping("/paymentTermsReq")
-	public List<PaymentTermsRequest> getAllTermsReq(){
+	public List<PaymentTermsRequestMaster> getAllTermsReq(){
 		return paymentService.getAllTermsReq();
 	}
 	
 	@GetMapping("/paymentDeliveryTerms")
-	public List<PaymentDeliveryTerms> getAllDeliveryTerms(){
+	public List<PaymentDeliveryTermsMaster> getAllDeliveryTerms(){
 		return paymentService.getAllDeliveryTerms();
 	}
 	@PostMapping("/paymentMethodInfo")

@@ -31,9 +31,9 @@ public class BusinessInfo implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long accountOpeningBusinessInfoId;
 
-	@OneToOne(fetch = FetchType.EAGER, targetEntity = CompanyType.class, cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.EAGER, targetEntity = CompanyTypeMaster.class, cascade = CascadeType.ALL)
 	@JoinColumn(name = "company_id", columnDefinition = "int(15)")
-	private CompanyType companyType;
+	private CompanyTypeMaster companyType;
 
 	@Column(name = "company_Registration_Number", nullable = false, length = 100)
 	private String companyRegistrationNumber;
@@ -44,9 +44,9 @@ public class BusinessInfo implements Serializable {
 	@Column(name = "vat_Number", nullable = false, length = 100)
 	private String vatNumber;
 
-	@OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessType.class, cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessTypeMaster.class, cascade = CascadeType.ALL)
 	@JoinColumn(name = "bussiness_type_id", columnDefinition = "int(15)")
-	private BusinessType businessType;
+	private BusinessTypeMaster businessType;
 
 	@Column(name = "Other_Company_Status", length = 100)
 	private String OtherCompanyStatus;
@@ -70,9 +70,9 @@ public class BusinessInfo implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public BusinessInfo(Long accountOpeningBusinessInfoId, CompanyType companyType,
+	public BusinessInfo(Long accountOpeningBusinessInfoId, CompanyTypeMaster companyType,
 			String companyRegistrationNumber, String companyRegisteredAddress, String vatNumber,
-			BusinessType businessType, String otherCompanyStatus, String companyRegName, Date dateofBusinessCommenced,
+			BusinessTypeMaster businessType, String otherCompanyStatus, String companyRegName, Date dateofBusinessCommenced,
 			String otherBusinessType, Registration accOpeningReg) {
 
 		this.accountOpeningBusinessInfoId = accountOpeningBusinessInfoId;
@@ -96,11 +96,11 @@ public class BusinessInfo implements Serializable {
 		this.accountOpeningBusinessInfoId = accountOpeningBusinessInfoId;
 	}
 
-	public CompanyType getCompanyType() {
+	public CompanyTypeMaster getCompanyType() {
 		return companyType;
 	}
 
-	public void setCompanyType(CompanyType companyType) {
+	public void setCompanyType(CompanyTypeMaster companyType) {
 		this.companyType = companyType;
 	}
 
@@ -128,11 +128,11 @@ public class BusinessInfo implements Serializable {
 		this.vatNumber = vatNumber;
 	}
 
-	public BusinessType getBusinessType() {
+	public BusinessTypeMaster getBusinessType() {
 		return businessType;
 	}
 
-	public void setBusinessType(BusinessType businessType) {
+	public void setBusinessType(BusinessTypeMaster businessType) {
 		this.businessType = businessType;
 	}
 

@@ -51,21 +51,21 @@ public class TradingInformationDetails implements Serializable {
 	@Column(name = "other_Contact_Name", nullable = false, length = 45)
 	private String otherContactName;
 	
-	@OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessSupplier.class, cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessSupplierMaster.class, cascade = CascadeType.ALL)
 	@JoinColumn(name = "business_Supplier_id", columnDefinition = "int(15)", nullable = false)
-	private BusinessSupplier businessSupplier;
+	private BusinessSupplierMaster businessSupplier;
 	
-	@OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessPmr.class, cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessPmrMaster.class, cascade = CascadeType.ALL)
 	@JoinColumn(name = "businessPmrId", columnDefinition = "int(15)", nullable = false)
-	private BusinessPmr businessPmr;
+	private BusinessPmrMaster businessPmr;
 	
-	@OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessBuyingGroup.class, cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessBuyingGroupMaster.class, cascade = CascadeType.ALL)
 	@JoinColumn(name = "businessBuyingGroupId", columnDefinition = "int(15)", nullable = false)
-	private BusinessBuyingGroup businessBuyingGroup;
+	private BusinessBuyingGroupMaster businessBuyingGroup;
 	
-	@OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessOrderSystem.class, cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessOrderSystemMaster.class, cascade = CascadeType.ALL)
 	@JoinColumn(name = "businessOrderSystemId", columnDefinition = "int(15)", nullable = false)
-	private BusinessOrderSystem businessOrderSystem;
+	private BusinessOrderSystemMaster businessOrderSystem;
 
 	public TradingInformationDetails() {
 		
@@ -75,8 +75,8 @@ public class TradingInformationDetails implements Serializable {
 	public TradingInformationDetails(Long tradingInformationDetailsId,
 			BusinessInfo accountOpeningBusinessInfo, String telephoneNumber, String faxNumber,
 			String websiteurl, String buyerName, String moblieNo, String emailAdd, String otherContactName,
-			BusinessSupplier businessSupplier, BusinessPmr businessPmr, BusinessBuyingGroup businessBuyingGroup,
-			BusinessOrderSystem businessOrderSystem) {
+			BusinessSupplierMaster businessSupplier, BusinessPmrMaster businessPmr, BusinessBuyingGroupMaster businessBuyingGroup,
+			BusinessOrderSystemMaster businessOrderSystem) {
 		super();
 		this.tradingInformationDetailsId = tradingInformationDetailsId;
 		this.accountOpeningBusinessInfo = accountOpeningBusinessInfo;
@@ -165,35 +165,35 @@ public class TradingInformationDetails implements Serializable {
 		this.otherContactName = otherContactName;
 	}
 
-	public BusinessSupplier getBusinessSupplier() {
+	public BusinessSupplierMaster getBusinessSupplier() {
 		return businessSupplier;
 	}
 
-	public void setBusinessSupplier(BusinessSupplier businessSupplier) {
+	public void setBusinessSupplier(BusinessSupplierMaster businessSupplier) {
 		this.businessSupplier = businessSupplier;
 	}
 
-	public BusinessPmr getBusinessPmr() {
+	public BusinessPmrMaster getBusinessPmr() {
 		return businessPmr;
 	}
 
-	public void setBusinessPmr(BusinessPmr businessPmr) {
+	public void setBusinessPmr(BusinessPmrMaster businessPmr) {
 		this.businessPmr = businessPmr;
 	}
 
-	public BusinessBuyingGroup getBusinessBuyingGroup() {
+	public BusinessBuyingGroupMaster getBusinessBuyingGroup() {
 		return businessBuyingGroup;
 	}
 
-	public void setBusinessBuyingGroup(BusinessBuyingGroup businessBuyingGroup) {
+	public void setBusinessBuyingGroup(BusinessBuyingGroupMaster businessBuyingGroup) {
 		this.businessBuyingGroup = businessBuyingGroup;
 	}
 
-	public BusinessOrderSystem getBusinessOrderSystem() {
+	public BusinessOrderSystemMaster getBusinessOrderSystem() {
 		return businessOrderSystem;
 	}
 
-	public void setBusinessOrderSystem(BusinessOrderSystem businessOrderSystem) {
+	public void setBusinessOrderSystem(BusinessOrderSystemMaster businessOrderSystem) {
 		this.businessOrderSystem = businessOrderSystem;
 	}
 

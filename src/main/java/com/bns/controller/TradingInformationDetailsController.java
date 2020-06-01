@@ -15,18 +15,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bns.exception.ResourceNotFoundException;
-import com.bns.model.AccountAddressTab;
+import com.bns.model.AccountAddress;
 import com.bns.model.BusinessInfo;
-import com.bns.model.BusinessBuyingGroup;
-import com.bns.model.BusinessOrderSystem;
-import com.bns.model.BusinessPmr;
-import com.bns.model.BusinessSupplier;
+import com.bns.model.BusinessBuyingGroupMaster;
+import com.bns.model.BusinessOrderSystemMaster;
+import com.bns.model.BusinessPmrMaster;
+import com.bns.model.BusinessSupplierMaster;
 import com.bns.model.TradingInformationDetails;
 import com.bns.repository.BusinessInfoRepository;
 import com.bns.repository.BusinessBuyingGroupRepository;
-import com.bns.repository.BusinessOrderSystemRepository;
-import com.bns.repository.BusinessPmrRepository;
-import com.bns.repository.BusinessSupplierRepository;
+import com.bns.repository.BusinessOrderSystemMasterRepository;
+import com.bns.repository.BusinessPmrMasterRepository;
+import com.bns.repository.BusinessSupplierMasterRepository;
 import com.bns.repository.TradingInformationDetailsRepository;
 import com.bns.service.TradingInformationDetailsService;
 
@@ -42,11 +42,11 @@ public class TradingInformationDetailsController {
 	@Autowired
 	private TradingInformationDetailsService tradingInformationDetailsService;
 	@Autowired
-	private BusinessSupplierRepository businessSupplierRepository;
+	private BusinessSupplierMasterRepository businessSupplierRepository;
 	@Autowired
-	private BusinessPmrRepository businessPmrRepository;
+	private BusinessPmrMasterRepository businessPmrRepository;
 	@Autowired
-	private BusinessOrderSystemRepository businessOrderSystemRepository;
+	private BusinessOrderSystemMasterRepository businessOrderSystemRepository;
 
 	@Autowired
 	private BusinessBuyingGroupRepository businessBuyingGroupRepository;
@@ -62,19 +62,19 @@ public class TradingInformationDetailsController {
 		tradingInformationDetails.setAccountOpeningBusinessInfo(accountOpeningBusinessInfo);
 
 		long suppierid = tradingInformationDetails.getBusinessSupplier().getBusinessSupplierId();
-		BusinessSupplier businessSupplier = businessSupplierRepository.findById(suppierid).get();
+		BusinessSupplierMaster businessSupplier = businessSupplierRepository.findById(suppierid).get();
 		tradingInformationDetails.setBusinessSupplier(businessSupplier);
 
 		long businessPmrid = tradingInformationDetails.getBusinessPmr().getBusinessPmrId();
-		BusinessPmr businessPmr = businessPmrRepository.findById(businessPmrid).get();
+		BusinessPmrMaster businessPmr = businessPmrRepository.findById(businessPmrid).get();
 		tradingInformationDetails.setBusinessPmr(businessPmr);
 
 		long businessSystemId = tradingInformationDetails.getBusinessOrderSystem().getBusinessOrderSystemId();
-		BusinessOrderSystem businessOrderSystem = businessOrderSystemRepository.findById(businessSystemId).get();
+		BusinessOrderSystemMaster businessOrderSystem = businessOrderSystemRepository.findById(businessSystemId).get();
 		tradingInformationDetails.setBusinessOrderSystem(businessOrderSystem);
 
 		long businessGpId = tradingInformationDetails.getBusinessBuyingGroup().getBusinessBuyingGroupId();
-		BusinessBuyingGroup businessBuyingGroup = businessBuyingGroupRepository.findById(businessGpId).get();
+		BusinessBuyingGroupMaster businessBuyingGroup = businessBuyingGroupRepository.findById(businessGpId).get();
 		tradingInformationDetails.setBusinessBuyingGroup(businessBuyingGroup);
 
 		return tradingInformationDetailsService.createTradingInformationDetails(tradingInformationDetails);

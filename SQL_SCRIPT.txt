@@ -200,6 +200,38 @@ create table customer_bank_info_tab(
 );
 
 
+12>Added by mehul
+create table Account_Opening_Directors_Guarantee(
+    Account_Opening_Directors_Guarantee_id number(8) primary key,
+    inserted_on date ,
+    Name_of_Guarantor varchar2(100) not null,
+    guarantor_sign varchar2(35) not null,
+    Name_of_Witness varchar2(100) not null,
+    witness_sign varchar2(35) not null,
+    Witness_postcode varchar2(20) ,
+    Witness_home_address varchar2(200) ,
+    Witness_city varchar2(35),
+    Witness_state varchar2(35),
+    Witness_country varchar2(35),
+    account_Opening_Business_Info_id number(8) not null REFERENCES Account_Opening_Business_Info (account_Opening_Business_Info_id)
+);
+
+
+13>create table account_Opening_Customer_Final_Declaration
+(
+    account_Opening_Customer_Final_Declaration_id number(8) primary key,
+    propiretors_date date not null,
+    Propiretors_Name varchar2(35) not null ,
+    Propiretors_Sign varchar2(35) not null,
+    representative_Date date not null,
+    bns_Representative_Name varchar(35) not null,
+    bns_Representative_Sign varchar(35) not null,
+    TERM_CONDITION number(3) not null,
+    account_Opening_Business_Info_id number(8) not null REFERENCES Account_Opening_Business_Info (account_Opening_Business_Info_id) 
+);
+
+
+
 
 
 
