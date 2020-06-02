@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "business_Information_Working_Hours")
+@Table(name = "business_Information_Working_Hours" , schema = "ifsapp")
 public class BusinessInformationWorkingHours implements Serializable {
 	/**
 	 * @author Hussain Doctor

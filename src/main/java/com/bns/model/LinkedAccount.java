@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="account_Opening_Linked_Acc")
+@Table(name="account_Opening_Linked_Acc", schema = "ifsapp")
 public class LinkedAccount implements Serializable{
 
 	/**

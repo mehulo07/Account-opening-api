@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="account_Opening_Directors_Guarantee")
+@Table(name="account_Opening_Directors_Guarantee" , schema = "ifsapp")
 public class DirectoresGuarantee implements Serializable{
 
 	/**

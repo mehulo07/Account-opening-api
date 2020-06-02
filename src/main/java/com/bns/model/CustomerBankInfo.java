@@ -13,7 +13,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "customer_bank_info_tab")
+@Table(name = "customer_bank_info_tab" , schema = "ifsapp")
 public class CustomerBankInfo implements Serializable {
 
 	/**

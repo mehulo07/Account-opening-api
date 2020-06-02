@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "security_Question")
+@Table(name = "security_Question" , schema = "ifsapp")
 public class SecurityQuestionMaster implements Serializable {
 	
 	/**

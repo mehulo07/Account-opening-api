@@ -17,7 +17,6 @@ import javax.persistence.Table;
 @Table(name = "business_Supplier")
 public class BusinessSupplierMaster implements Serializable  {
 
-
 	/**
 	 * @author Hussain Doctor
 	 */
@@ -25,7 +24,7 @@ public class BusinessSupplierMaster implements Serializable  {
 	private static final long serialVersionUID = 1298211974861057016L;
 	
 	@Id
-    @Column(name = "business_Supplier_id")
+    @Column(name = "business_Supplier_id" , schema = "ifsapp")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long  businessSupplierId;
 	

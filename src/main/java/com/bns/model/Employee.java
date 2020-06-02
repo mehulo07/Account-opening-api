@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "employees")
+@Table(name = "employees" , schema = "ifsapp")
 public class Employee {
 
     private long employee_id;
