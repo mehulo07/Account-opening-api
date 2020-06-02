@@ -1,4 +1,4 @@
-package com.bns.controller;
+package com.bns.model;
 
 import java.io.Serializable;
 import java.util.Date;
