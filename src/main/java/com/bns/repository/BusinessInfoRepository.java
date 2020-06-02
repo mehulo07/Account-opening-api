@@ -14,7 +14,7 @@ import com.bns.model.BusinessInfo;
 @Repository
 public interface BusinessInfoRepository extends JpaRepository<BusinessInfo, Long> {
 	
-	@Query("from AccountOpeningBusinessInfo a join a.accOpeningReg c where c.accountOpeningRegInfoId=:accRegId")
+	@Query("from BusinessInfo a join a.accOpeningReg c where c.accountOpeningRegInfoId=:accRegId")
     public List<BusinessInfo> findByaccRegId(@Param("accRegId")Long accRegId);
 
 

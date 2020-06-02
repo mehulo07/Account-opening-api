@@ -77,8 +77,5 @@ public class BusinessBuyingGroupMaster implements Serializable {
 		return "BusinessBuyingGroup [businessBuyingGroupId=" + businessBuyingGroupId + ", businessBuyingGroupName="
 				+ businessBuyingGroupName + ", businessType=" + businessType + "]";
 	}
-
-
-	
 	
 }

@@ -14,7 +14,7 @@ import com.bns.model.LinkedAccount;
 @Repository
 public interface LinkedAccRepository extends JpaRepository<LinkedAccount, Long> {
 	
-	@Query("from AccountOpeningLinkedAcc a join a.accOpeningReg c where c.accountOpeningRegInfoId=:accRegId")
+	@Query("from LinkedAccount a join a.accOpeningReg c where c.accountOpeningRegInfoId=:accRegId")
     public List<LinkedAccount> findByaccRegId(@Param("accRegId")Long accRegId);
 
 }

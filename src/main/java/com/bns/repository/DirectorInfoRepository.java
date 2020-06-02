@@ -13,6 +13,6 @@ import com.bns.model.DirectorInfo;
 @Repository
 public interface DirectorInfoRepository  extends JpaRepository<DirectorInfo, Long>{
 	
-	@Query("from AccountOpeningDirectorInfo a join a.accountOpeningBusinessInfo c where c.accountOpeningBusinessInfoId=:businessinfoId")
+	@Query("from DirectorInfo a join a.accountOpeningBusinessInfo c where c.accountOpeningBusinessInfoId=:businessinfoId")
     public List<DirectorInfo> findByBusinessInfoId(@Param("businessinfoId")Long businessinfoId);
 }

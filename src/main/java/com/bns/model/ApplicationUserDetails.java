@@ -18,7 +18,6 @@ public class ApplicationUserDetails implements UserDetails {
 	private String password;
 	private String roles;
 	private boolean active;
-	private String infoEntryId;
 	
 	public ApplicationUserDetails(UserAuthDetail user){
 		System.out.println("inside setting up");
@@ -26,7 +25,6 @@ public class ApplicationUserDetails implements UserDetails {
 		this.userName = user.getUserName();
 		this.roles = user.getRoles();
 		this.active =user.isActive();
-		this.infoEntryId = user.getInfoEntryId();
 	}
 	
 	public ApplicationUserDetails(){
@@ -72,14 +70,6 @@ public class ApplicationUserDetails implements UserDetails {
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
 		return active;
-	}
-
-	public String getInfoEntryId() {
-		return infoEntryId;
-	}
-
-	public void setInfoEntryId(String infoEntryId) {
-		this.infoEntryId = infoEntryId;
 	}
 	
 }

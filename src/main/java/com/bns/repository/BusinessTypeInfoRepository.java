@@ -13,7 +13,7 @@ import com.bns.model.BusinessTypeInfo;
 @Repository
 public interface BusinessTypeInfoRepository extends JpaRepository<BusinessTypeInfo, Long>{
 	
-	@Query("from AccountOpeningBusinessTypeInfo a join a.accountOpeningBusinessInfo c where c.accountOpeningBusinessInfoId=:businessinfoId")
+	@Query("from BusinessTypeInfo a join a.accountOpeningBusinessInfo c where c.accountOpeningBusinessInfoId=:businessinfoId")
     public List<BusinessTypeInfo> findByBusinessInfoId(@Param("businessinfoId")Long businessinfoId);
 
 }

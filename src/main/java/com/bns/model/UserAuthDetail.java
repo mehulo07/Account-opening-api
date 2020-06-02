@@ -1,9 +1,12 @@
+
 package com.bns.model;
 
 import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -19,6 +22,7 @@ public class UserAuthDetail implements Serializable {
 	@Column(name = "user_id", nullable = false)
 	private String userId;
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_name", nullable = false)
 	private String userName;
     @Column(name = "password", nullable = false)
@@ -27,9 +31,6 @@ public class UserAuthDetail implements Serializable {
 	private String roles;
     @Column(name = "active", nullable = false)
 	private boolean active;
-    @Column(name = "info_entry_id", nullable = true)
-	private String infoEntryId;
-    
     
 	public UserAuthDetail() {
 		
@@ -73,19 +74,13 @@ public class UserAuthDetail implements Serializable {
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-	public String getInfoEntryId() {
-		return infoEntryId;
-	}
-	public void setInfoEntryId(String infoEntryId) {
-		this.infoEntryId = infoEntryId;
-	}
 
 	@Override
 	public String toString() {
 		return "UserAuthDetail [userId=" + userId + ", userName=" + userName + ", password=" + password + ", roles="
-				+ roles + ", active=" + active + ", infEntryId=" + infoEntryId + "]";
+				+ roles + ", active=" + active + "]";
 	}
 	
+}	
 	
 	
-}

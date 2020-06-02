@@ -16,7 +16,7 @@ public interface BusinessTypeMasterRepository extends JpaRepository <BusinessTyp
 	
 	
 	
-	@Query("from BusinessType a join a.companyType c where c.companyId=:companyTypeId")
+	@Query("from BusinessTypeMaster a join a.companyType c where c.companyId=:companyTypeId")
     public List<BusinessTypeMaster> findByCompanyID(@Param("companyTypeId")Long companyTypeId);
 
 

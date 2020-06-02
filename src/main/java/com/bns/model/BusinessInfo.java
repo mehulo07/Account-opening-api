@@ -86,6 +86,7 @@ public class BusinessInfo implements Serializable {
 		this.dateofBusinessCommenced = dateofBusinessCommenced;
 		OtherBusinessType = otherBusinessType;
 		this.accOpeningReg = accOpeningReg;
+		
 	}
 
 	public Long getAccountOpeningBusinessInfoId() {

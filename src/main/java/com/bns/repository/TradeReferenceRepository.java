@@ -12,7 +12,7 @@ import com.bns.model.TradeReference;
 @Repository
 public interface TradeReferenceRepository extends JpaRepository<TradeReference, Long> {
 
-	@Query("from AccountOpeningTradeReference a join a.accountOpeningBusinessInfo c where c.accountOpeningBusinessInfoId=:businessinfoId")
+	@Query("from TradeReference a join a.accountOpeningBusinessInfo c where c.accountOpeningBusinessInfoId=:businessinfoId")
 	public List<TradeReference> findByBusinessInfoId(@Param("businessinfoId") Long businessinfoId);
 
 }

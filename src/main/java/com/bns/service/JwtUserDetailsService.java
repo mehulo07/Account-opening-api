@@ -29,8 +29,6 @@ public class JwtUserDetailsService implements UserDetailsService {
 	public UserAuthDetail updateEntryId(String username , int regEntryId)throws ResourceNotFoundException {
 		UserAuthDetail userRegAuthDetail = userAuthRepo.findByUserName(username)
         		.orElseThrow(() -> new ResourceNotFoundException("Not Found:: " + username));
-		
-		userRegAuthDetail.setInfoEntryId(String.valueOf(regEntryId));
 		final UserAuthDetail userAuthDetailUpdated = userAuthRepo.save(userRegAuthDetail);
 		
 		return userAuthDetailUpdated;

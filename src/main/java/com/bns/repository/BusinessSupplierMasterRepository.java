@@ -22,7 +22,7 @@ import com.bns.model.BusinessTypeMaster;
 @Repository
 public interface BusinessSupplierMasterRepository extends JpaRepository <BusinessSupplierMaster, Long > {
 	
-	@Query("from BusinessSupplier a join a.businessType c where c.businessTypeId=:businessTypeId")
+	@Query("from BusinessSupplierMaster a join a.businessType c where c.businessTypeId=:businessTypeId")
     public List<BusinessSupplierMaster> findByBusinessTypeID(@Param("businessTypeId")Long businessTypeId);
 
 

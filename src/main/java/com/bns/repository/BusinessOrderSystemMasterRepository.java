@@ -13,7 +13,7 @@ import com.bns.model.BusinessOrderSystemMaster;
 @Repository
 public interface BusinessOrderSystemMasterRepository extends JpaRepository <BusinessOrderSystemMaster, Long >{
 	
-	@Query("from BusinessOrderSystem a join a.businessType c where c.businessTypeId=:businessTypeId")
+	@Query("from BusinessOrderSystemMaster a join a.businessType c where c.businessTypeId=:businessTypeId")
     public List<BusinessOrderSystemMaster> findByBusinessTypeID(@Param("businessTypeId")Long businessTypeId);
 
 }

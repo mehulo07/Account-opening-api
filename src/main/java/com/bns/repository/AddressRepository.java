@@ -14,7 +14,7 @@ import com.bns.model.AccountAddress;
 @Repository
 public interface AddressRepository extends JpaRepository<AccountAddress, Long> {
 	
-	@Query("from AccountOpeningAddressTab a join a.accountOpeningBusinessInfo c where c.accountOpeningBusinessInfoId=:businessinfoId")
+	@Query("from AccountAddress a join a.accountOpeningBusinessInfo c where c.accountOpeningBusinessInfoId=:businessinfoId")
     public List<AccountAddress> findByBusinessInfoId(@Param("businessinfoId")Long businessinfoId);
 
 }

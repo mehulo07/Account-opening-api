@@ -26,11 +26,12 @@ import com.bns.service.AddressService;
 @CrossOrigin
 @RequestMapping("/v1/openAccount")
 public class AddressController {
+	
 	@Autowired
-	private BusinessInfoRepository accountOpeningBusinessInfoRepository;
+	private BusinessInfoRepository businessInfoRepository;
 
 	@Autowired
-	private AddressRepository accountOpeningAddressTabRepository;
+	private AddressRepository addressRepository;
 
 	@Autowired
 	private AddressService accountOpeningAddressTabService;
@@ -39,10 +40,12 @@ public class AddressController {
 	public AccountAddress accountOpeningAddressTabSave(
 			@Valid @RequestBody AccountAddress accountOpeningAddressTab) throws Exception {
 
-		long businessinfoid = accountOpeningAddressTab.getAccountOpeningBusinessInfo()
+		Long businessinfoid = accountOpeningAddressTab.getAccountOpeningBusinessInfo()
 				.getAccountOpeningBusinessInfoId();
-		BusinessInfo accountOpeningBusinessInfo = accountOpeningBusinessInfoRepository
-				.findById(businessinfoid).get();
+		System.out.println("businessinfoid is:"+businessinfoid);
+//		BusinessInfo accountOpeningBusinessInfo = businessInfoRepository.findById(businessinfoid).get();
+		BusinessInfo accountOpeningBusinessInfo = businessInfoRepository.findById(businessinfoid).orElseThrow(()
+				-> new ResourceNotFoundException("Business info not found"));
 		accountOpeningAddressTab.setAccountOpeningBusinessInfo(accountOpeningBusinessInfo);
 
 		return accountOpeningAddressTabService.createAccountOpeningAddressTab(accountOpeningAddressTab);
@@ -63,7 +66,7 @@ public class AddressController {
 	@GetMapping("/accountOpeningAddressTabByBusinessinfoId/{id}")
 	public List<AccountAddress> getAccountOpeningAddressTabBusinessID(
 			@PathVariable(value = "id") Long businessinfoId) {
-		return accountOpeningAddressTabRepository.findByBusinessInfoId(businessinfoId);
+		return addressRepository.findByBusinessInfoId(businessinfoId);
 	}
 
 	@PutMapping("/accountOpeningAddressTab/{id}")

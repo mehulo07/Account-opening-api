@@ -13,6 +13,6 @@ import com.bns.model.BusinessPmrMaster;
 @Repository
 public interface BusinessPmrMasterRepository extends JpaRepository <BusinessPmrMaster, Long >{
 	
-	@Query("from BusinessPmr a join a.businessType c where c.businessTypeId=:businessTypeId")
+	@Query("from BusinessPmrMaster a join a.businessType c where c.businessTypeId=:businessTypeId")
     public List<BusinessPmrMaster> findByBusinessTypeID(@Param("businessTypeId")Long businessTypeId);
 }
