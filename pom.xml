@@ -12,6 +12,7 @@
 	<artifactId>acc-open-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>acc-open-api</name>
+	<packaging>war</packaging>
 	<description>Account opening API</description>
 
 	<properties>
@@ -74,8 +75,6 @@
 			<groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
 		</dependency>
-		
-		
 		<dependency>
     		<groupId>org.springframework</groupId>
    			 <artifactId>spring-aop</artifactId>
