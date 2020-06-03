@@ -12,7 +12,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "cust_ord_tab")
+@Table(name = "cust_ord_tab" , schema = "ifsapp")
 public class TradingName implements Serializable{
 
 	/**

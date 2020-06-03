@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "account_Opening_security_Que")
+@Table(name = "account_Opening_security_Que" , schema = "ifsapp")
 public class SecurityQue implements Serializable {
 	
 

@@ -17,7 +17,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "licence_Information_Details_Two")
+@Table(name = "licence_Information_Details_Two" , schema = "ifsapp")
 public class LicenceInformationDetailsTwo implements Serializable {
 
 	/**

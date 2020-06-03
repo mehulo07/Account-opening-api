@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="payment_deli_terms_master_tab")
+@Table(name="payment_deli_terms_master_tab" , schema = "ifsapp")
 public class PaymentDeliveryTermsMaster implements Serializable{
 
 	/**

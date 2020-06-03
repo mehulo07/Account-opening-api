@@ -14,9 +14,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "business_Supplier")
+@Table(name = "business_Supplier" , schema = "ifsapp")
 public class BusinessSupplierMaster implements Serializable  {
-
 
 	/**
 	 * @author Hussain Doctor
@@ -25,7 +24,7 @@ public class BusinessSupplierMaster implements Serializable  {
 	private static final long serialVersionUID = 1298211974861057016L;
 	
 	@Id
-    @Column(name = "business_Supplier_id")
+    @Column(name = "business_Supplier_id" )
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long  businessSupplierId;
 	

@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "payment_methods_info_tab")
+@Table(name = "payment_methods_info_tab" , schema = "ifsapp")
 public class PaymentMethodInfo implements Serializable{
 
 	/**

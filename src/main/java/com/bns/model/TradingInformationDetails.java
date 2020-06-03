@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "trading_Information_Details")
+@Table(name = "trading_Information_Details" , schema = "ifsapp")
 public class TradingInformationDetails implements Serializable {
 
 	/**

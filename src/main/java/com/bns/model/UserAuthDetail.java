@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "account_opening_auth_tab")
+@Table(name = "account_opening_auth_tab" , schema = "ifsapp")
 public class UserAuthDetail implements Serializable {
 
 	/**

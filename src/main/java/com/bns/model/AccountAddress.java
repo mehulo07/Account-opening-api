@@ -16,7 +16,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="account_Opening_Address_Tab")
+@Table(name="account_Opening_Address_Tab" , schema = "ifsapp")
 public class AccountAddress  implements Serializable{
 	
 	
