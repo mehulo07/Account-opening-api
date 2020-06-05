@@ -37,8 +37,8 @@ public class SpringBootJwtApplication extends SpringBootServletInitializer{
 	public Docket swaggerConfiguration() {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.select()
-				.paths(PathSelectors.ant("/api/**"))
-				.apis(RequestHandlerSelectors.basePackage("com.bns"))
+				.paths(PathSelectors.any())
+				.apis(RequestHandlerSelectors.any())
 				.build()
 				.apiInfo(apiDetails());
 	}
