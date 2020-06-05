@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="account_Opening_Business_Type_Info" , schema = "ifsapp")
+@Table(name="acc_opening_busi_type_info_tab" , schema = "ifsapp")
 public class BusinessTypeInfo  implements Serializable{
 	
 	/**
@@ -24,7 +24,7 @@ public class BusinessTypeInfo  implements Serializable{
 	private static final long serialVersionUID = 1298211974861057016L;
 	
 	@Id
-    @Column(name = "account_Opening_Business_Type_Info_id",nullable = false)
+    @Column(name = "acc_opening_busi_type_info_id",nullable = false)
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long  accountOpeningBusinessTypeInfoId;
 	
@@ -67,7 +67,7 @@ public class BusinessTypeInfo  implements Serializable{
 	   	private Boolean northernland;
     
     @OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessInfo.class,cascade = CascadeType.ALL)
-    @JoinColumn(name = "account_Opening_Business_Info_id",columnDefinition="int(15)",nullable = false)
+    @JoinColumn(name = "acc_opening_business_info_id",columnDefinition="int(15)",nullable = false)
     private BusinessInfo accountOpeningBusinessInfo;
 
 	public BusinessTypeInfo() {

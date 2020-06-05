@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "business_Pmr" , schema = "ifsapp")
+@Table(name = "business_pmr_tab" , schema = "ifsapp")
 public class BusinessPmrMaster implements Serializable {
 
 	/**

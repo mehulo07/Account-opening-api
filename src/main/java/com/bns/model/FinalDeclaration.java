@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Entity
-@Table(name="account_Opening_Customer_Final_Declaration")
+@Table(name="acc_opening_cust_fin_decl_tab")
 @RequestMapping("/v1/openAccount")
 public class FinalDeclaration implements Serializable{
 
@@ -24,7 +24,7 @@ public class FinalDeclaration implements Serializable{
 	
 	
 	@Id
-	@Column(name="account_Opening_Customer_Final_Declaration_id" , length = 8)
+	@Column(name="acc_opening_cust_fin_decl_id" , length = 8)
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long declarationId;
 	
@@ -49,7 +49,7 @@ public class FinalDeclaration implements Serializable{
 	@Column(name = "TERM_CONDITION" , nullable = false , length = 1 ,columnDefinition = "TINYINT(1)")
 	private Boolean termCondition;
 	
-	@Column(name="account_Opening_Business_Info_id" , nullable = false ,length = 8 )
+	@Column(name="acc_opening_busi_info_id" , nullable = false ,length = 8 )
 	private int businessInfoId;
 
 	public FinalDeclaration() {

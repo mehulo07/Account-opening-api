@@ -17,7 +17,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "account_Opening_Business_Info" , schema = "ifsapp")
+@Table(name = "acc_opening_business_info_tab" , schema = "ifsapp")
 public class BusinessInfo implements Serializable {
 
 	/**
@@ -27,7 +27,7 @@ public class BusinessInfo implements Serializable {
 	private static final long serialVersionUID = 1298211974861057016L;
 
 	@Id
-	@Column(name = "account_Opening_Business_Info_id", nullable = false)
+	@Column(name = "acc_opening_business_info_id", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long accountOpeningBusinessInfoId;
 

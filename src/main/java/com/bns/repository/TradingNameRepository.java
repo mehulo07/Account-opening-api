@@ -9,7 +9,7 @@ import com.bns.model.TradingName;
 @Repository
 public interface TradingNameRepository extends JpaRepository<TradingName, String> {
 
-	@Query(value="select a.* , b.* from  customer_info_address_tab a , cust_ord_tab b where a.CUSTOMER_ID=:custId AND  b.CUSTOMER_NO=:custId AND ADDRESS_ID ='01'",nativeQuery = true)
+	@Query(value="select a.* , b.* from  cust_ord_tab a , cust_ord_tab b where a.CUSTOMER_ID=:custId AND  b.CUSTOMER_NO=:custId AND ADDRESS_ID ='01'",nativeQuery = true)
 	public TradingName getTradingInfoByCustId(String custId);
 	
 }

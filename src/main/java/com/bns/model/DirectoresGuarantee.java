@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="account_Opening_Directors_Guarantee" , schema = "ifsapp")
+@Table(name="acc_opening_director_gur_tab" , schema = "ifsapp")
 public class DirectoresGuarantee implements Serializable{
 
 	/**
@@ -20,7 +20,7 @@ public class DirectoresGuarantee implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 		@Id
-		@Column(name="Account_Opening_Directors_Guarantee_id" , nullable = false ,length = 100 )
+		@Column(name="acc_opening_director_gur_id" , nullable = false ,length = 100 )
 		@GeneratedValue(strategy = GenerationType.AUTO)
 		private Long  guaranteeId; 
 		
@@ -54,7 +54,7 @@ public class DirectoresGuarantee implements Serializable{
 		@Column(name="Witness_country" , nullable = false ,length = 35 )
 		private String witnessCountry;
 		
-		@Column(name="account_Opening_Business_Info_id" , nullable = false ,length = 8 )
+		@Column(name="acc_opening_busi_info_id" , nullable = false ,length = 8 )
 		private int businessInfoId;
 		
 		

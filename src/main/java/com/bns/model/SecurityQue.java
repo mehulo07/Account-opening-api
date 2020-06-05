@@ -14,12 +14,12 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "account_Opening_security_Que" , schema = "ifsapp")
+@Table(name = "acc_opening_sec_que_tab" , schema = "ifsapp")
 public class SecurityQue implements Serializable {
 	
 
 	@Id
-    @Column(name = "account_Opening_security_Que_id")
+    @Column(name = "acc_opening_sec_que_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long  accountOpeningSecurityQueId;
 	

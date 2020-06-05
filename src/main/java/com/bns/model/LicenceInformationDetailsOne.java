@@ -17,7 +17,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "licence_Information_Details_One" , schema = "ifsapp")
+@Table(name = "lic_info_details_one_tab" , schema = "ifsapp")
 public class LicenceInformationDetailsOne implements Serializable {
 
 	/**
@@ -27,7 +27,7 @@ public class LicenceInformationDetailsOne implements Serializable {
 	private static final long serialVersionUID = 1298211974861057016L;
 
 	@Id
-	@Column(name = "licence_Information_Details_One_id", nullable = false)
+	@Column(name = "lic_info_details_one_id", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long licenceInformationDetailsOneId;
 
@@ -83,7 +83,7 @@ public class LicenceInformationDetailsOne implements Serializable {
 	private Boolean maNo;
 
 	@OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessInfo.class, cascade = CascadeType.ALL)
-	@JoinColumn(name = "account_Opening_Business_Info_id", columnDefinition = "int(15)", nullable = false)
+	@JoinColumn(name = "acc_opening_busi_info_id", columnDefinition = "int(15)", nullable = false)
 	private BusinessInfo accountOpeningBusinessInfo;
 
 	public LicenceInformationDetailsOne() {

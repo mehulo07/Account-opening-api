@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "account_Opening_Marketing_Pref" , schema = "ifsapp")
+@Table(name = "acc_opening_market_pref_tab" , schema = "ifsapp")
 public class MarketingPref implements Serializable  {
 	
 	/**
@@ -24,7 +24,7 @@ public class MarketingPref implements Serializable  {
 	private static final long serialVersionUID = 1298211974861057016L;
 	
 	@Id
-    @Column(name = "account_Opening_Marketing_Pref_id")
+    @Column(name = "acc_opening_market_pref_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long  accountOpeningMarketingPrefId;
 	

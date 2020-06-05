@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "trading_Information_Details" , schema = "ifsapp")
+@Table(name = "trading_info_details_tab" , schema = "ifsapp")
 public class TradingInformationDetails implements Serializable {
 
 	/**
@@ -24,12 +24,12 @@ public class TradingInformationDetails implements Serializable {
 	private static final long serialVersionUID = 1298211974861057016L;
 
 	@Id
-	@Column(name = "trading_Information_Details_id", nullable = false)
+	@Column(name = "trading_info_details_id", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long tradingInformationDetailsId;
 
 	@OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessInfo.class, cascade = CascadeType.ALL)
-	@JoinColumn(name = "account_Opening_Business_Info_id", columnDefinition = "int(15)", nullable = false)
+	@JoinColumn(name = "acc_opening_busi_info_id", columnDefinition = "int(15)", nullable = false)
 	private BusinessInfo accountOpeningBusinessInfo;
 
 	@Column(name = "telephone_Number", nullable = false, length = 45)
@@ -56,15 +56,15 @@ public class TradingInformationDetails implements Serializable {
 	private BusinessSupplierMaster businessSupplier;
 	
 	@OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessPmrMaster.class, cascade = CascadeType.ALL)
-	@JoinColumn(name = "businessPmrId", columnDefinition = "int(15)", nullable = false)
+	@JoinColumn(name = "business_pmr_id", columnDefinition = "int(15)", nullable = false)
 	private BusinessPmrMaster businessPmr;
 	
 	@OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessBuyingGroupMaster.class, cascade = CascadeType.ALL)
-	@JoinColumn(name = "businessBuyingGroupId", columnDefinition = "int(15)", nullable = false)
+	@JoinColumn(name = "business_buying_group_id", columnDefinition = "int(15)", nullable = false)
 	private BusinessBuyingGroupMaster businessBuyingGroup;
 	
 	@OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessOrderSystemMaster.class, cascade = CascadeType.ALL)
-	@JoinColumn(name = "businessOrderSystemId", columnDefinition = "int(15)", nullable = false)
+	@JoinColumn(name = "business_order_system_id", columnDefinition = "int(15)", nullable = false)
 	private BusinessOrderSystemMaster businessOrderSystem;
 
 	public TradingInformationDetails() {

@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "account_Opening_Trade_Reference" , schema = "ifsapp")
+@Table(name = "acc_opening_trade_ref_tab" , schema = "ifsapp")
 public class TradeReference implements Serializable {
 
 	/**
@@ -24,7 +24,7 @@ public class TradeReference implements Serializable {
 	private static final long serialVersionUID = 1298211974861057016L;
 
 	@Id
-	@Column(name = "account_Opening_Trade_Reference_id", nullable = false)
+	@Column(name = "acc_opening_trade_ref_id", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long accountOpeningTradeReferenceId;
 
@@ -53,7 +53,7 @@ public class TradeReference implements Serializable {
 	private String emailAddressTwo;
 
 	@OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessInfo.class, cascade = CascadeType.ALL)
-	@JoinColumn(name = "account_Opening_Business_Info_id", columnDefinition = "int(15)", nullable = false)
+	@JoinColumn(name = "acc_opening_busi_info_id", columnDefinition = "int(15)", nullable = false)
 	private BusinessInfo accountOpeningBusinessInfo;
 
 	public TradeReference() {

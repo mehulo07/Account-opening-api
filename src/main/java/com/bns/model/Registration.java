@@ -17,7 +17,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
-@Table(name="Account_Opening_Reg_Info_Tab" , schema = "ifsapp")
+@Table(name="acc_opening_reg_info_tab" , schema = "ifsapp")
 public class Registration implements Serializable {
 
 	/**
@@ -27,8 +27,8 @@ public class Registration implements Serializable {
 
 	@Id
     @GeneratedValue(generator = "value")
-    @SequenceGenerator(sequenceName = "Account_Opening_Mail_Seq", allocationSize = 1, name = "value")
-	@Column(name="ACCOUNT_OPENING_REG_INFO_ID")
+    @SequenceGenerator(sequenceName = "acc_opening_mail_seq_tab", allocationSize = 1, name = "value")
+	@Column(name="acc_opening_reg_info_id")
 	private int accountOpeningRegInfoId;
 	@Column(nullable = false)
 	private String firstName;

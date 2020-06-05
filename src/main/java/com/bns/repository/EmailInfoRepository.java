@@ -10,7 +10,7 @@ import com.bns.model.EmailInfo;
 @Repository
 public interface EmailInfoRepository extends JpaRepository<com.bns.model.EmailInfo,Long> {
 
-		@Query(value = "select * from Account_Opening_Email_Info g where g.ACCOUNT_OPENING_REG_INFO_ID = :ReferanceId",nativeQuery = true)
+		@Query(value = "select * from acc_opening_email_info_tab g where g.account_opening_reg_info_id = :ReferanceId",nativeQuery = true)
 		EmailInfo findByReferanceId(@Param("ReferanceId") Long ReferanceId);
 
 	

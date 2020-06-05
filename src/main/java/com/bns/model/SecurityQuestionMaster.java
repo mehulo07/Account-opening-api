@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "security_Question" , schema = "ifsapp")
+@Table(name = "security_question_tab" , schema = "ifsapp")
 public class SecurityQuestionMaster implements Serializable {
 	
 	/**
@@ -20,7 +20,7 @@ public class SecurityQuestionMaster implements Serializable {
 	private static final long serialVersionUID = 1298211974861057016L;
 
 	@Id
-    @Column(name = "security_Question_id")
+    @Column(name = "security_question_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long  securityQuestionId;
 	

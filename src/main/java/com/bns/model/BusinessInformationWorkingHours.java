@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "business_Information_Working_Hours" , schema = "ifsapp")
+@Table(name = "business_info_work_hrs_tab" , schema = "ifsapp")
 public class BusinessInformationWorkingHours implements Serializable {
 	/**
 	 * @author Hussain Doctor
@@ -23,12 +23,12 @@ public class BusinessInformationWorkingHours implements Serializable {
 	private static final long serialVersionUID = 1298211974861057016L;
 
 	@Id
-	@Column(name = "licence_Information_Details_Two_id", nullable = false)
+	@Column(name = "lic_info_details_two_id", nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long licenceInformationDetailsTwoId;
 
 	@OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessInfo.class, cascade = CascadeType.ALL)
-	@JoinColumn(name = "account_Opening_Business_Info_id", columnDefinition = "int(15)", nullable = false)
+	@JoinColumn(name = "acc_opening_busi_info_id", columnDefinition = "int(15)", nullable = false)
 	private BusinessInfo accountOpeningBusinessInfo;
 
 	@Column(name = "working_Hours_Comment", length = 200)

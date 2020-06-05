@@ -9,7 +9,7 @@ import com.bns.model.DirectoresGuarantee;
 @Repository
 public interface DirectoresGuaranteeRepository extends JpaRepository<DirectoresGuarantee, Long> {
 
-	@Query(value="select * from account_Opening_Directors_Guarantee where account_Opening_Business_Info_id=:guaranteeId ",nativeQuery = true)
+	@Query(value="select * from acc_opening_director_gur_tab where acc_opening_busi_info_id=:guaranteeId ",nativeQuery = true)
 	public DirectoresGuarantee findByReferenceId(Long guaranteeId);
 		
 }

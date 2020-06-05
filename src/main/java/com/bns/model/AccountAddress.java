@@ -16,7 +16,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="account_Opening_Address_Tab" , schema = "ifsapp")
+@Table(name="acc_opening_address_tab" , schema = "ifsapp")
 public class AccountAddress  implements Serializable{
 	
 	
@@ -27,7 +27,7 @@ public class AccountAddress  implements Serializable{
 	private static final long serialVersionUID = 1298211974861057016L;
 	
 	@Id
-    @Column(name = "account_Opening_Address_Tab_id",nullable = false)
+    @Column(name = "acc_opening_address_tab_id",nullable = false)
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long  accountOpeningAddressTabId;
 	
@@ -55,7 +55,7 @@ public class AccountAddress  implements Serializable{
 	   	private String countryTab;
     
     @OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessInfo.class,cascade = CascadeType.ALL)
-    @JoinColumn(name = "account_Opening_Business_Info_id",columnDefinition="int(15)",nullable = false)
+    @JoinColumn(name = "acc_opening_business_info_id",columnDefinition="int(15)",nullable = false)
     private BusinessInfo accountOpeningBusinessInfo;
 
 	public AccountAddress() {

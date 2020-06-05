@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "customer_info_address_tab" , schema = "ifsapp")
+@Table(name = "cust_info_address_tab" , schema = "ifsapp")
 public class ExistingAccInfo implements Serializable{
 
 	/**

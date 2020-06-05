@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="account_Opening_Linked_Acc", schema = "ifsapp")
+@Table(name="acc_opening_linked_acc_tab", schema = "ifsapp")
 public class LinkedAccount implements Serializable{
 
 	/**
@@ -24,7 +24,7 @@ public class LinkedAccount implements Serializable{
 	private static final long serialVersionUID = 1298211974861057016L;
 	
 	@Id
-    @Column(name = "account_Opening_Linked_Acc_id",nullable = false)
+    @Column(name = "acc_opening_linked_acc_id",nullable = false)
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long  accountOpeningLinkedAccId;
 	
@@ -47,7 +47,7 @@ public class LinkedAccount implements Serializable{
    	private String acccomments;
     
     @OneToOne(fetch = FetchType.EAGER, targetEntity = Registration.class,cascade = CascadeType.ALL)
-    @JoinColumn(name = "ao_pening_Reg_Info_id",columnDefinition="int(15)",nullable = false)
+    @JoinColumn(name = "ao_pening_reg_info_id",columnDefinition="int(15)",nullable = false)
     private Registration accOpeningReg;
 
     

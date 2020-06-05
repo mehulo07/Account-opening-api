@@ -10,7 +10,7 @@ import com.bns.model.ExistingAccInfo;
 @Repository
 public interface ExistingAccInfoRepository extends JpaRepository<ExistingAccInfo, String> {
 	
-	@Query(value = "select * from customer_info_address_tab  where CUSTOMER_ID =:customerId and  ADDRESS_ID='01'",nativeQuery = true)
+	@Query(value = "select * from cust_info_address_tab  where CUSTOMER_ID =:customerId and  ADDRESS_ID='01'",nativeQuery = true)
     public ExistingAccInfo findByCustomerId(@Param("customerId")String customerId);
 	
 }
