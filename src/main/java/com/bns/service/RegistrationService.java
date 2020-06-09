@@ -47,8 +47,11 @@ public class RegistrationService {
 			returnVal ="Exception while email sending please try again";
 		}
 		
+		
 		return accOpeningReg;
 	}
+	
+	
 }
 
 //GenerateOracleSequence
