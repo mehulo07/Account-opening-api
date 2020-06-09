@@ -11,6 +11,8 @@ import com.bns.model.Registration;
 import com.bns.service.EmailInfoService;
 import com.bns.service.RegistrationService;
 
+import net.sf.json.JSONObject;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/v1/openAccount")
@@ -22,12 +24,30 @@ public class AccOpeningController {
 	@Autowired
 	private EmailInfoService accOpeningEmailInfoService;
 
+//	@PostMapping("/")
+//	public String accOpeningForm(@RequestBody Registration accOpeningReg) throws Exception {
+//		System.out.println("inisde accOpeningForm");
+//		System.out.println("Added by hussain 1");
+//		return accOpeningRegService.createAccount(accOpeningReg);
+//	}
+	
 	@PostMapping("/")
-	public String accOpeningForm(@RequestBody Registration accOpeningReg) throws Exception {
+	public JSONObject accOpeningForm(@RequestBody Registration accOpeningReg) throws Exception {
 		System.out.println("inisde accOpeningForm");
 		System.out.println("Added by hussain 1");
-		return accOpeningRegService.createAccount(accOpeningReg);
+		
+		 
+		 Registration t=accOpeningRegService.createAccount(accOpeningReg);
+		 JSONObject json=new JSONObject();
+		 json.put("Registration", t);
+		 json.put("Message", "User Registration Successfully.");
+		 
+		 return json;
+		 
+		 
+		 
+		 
+		 
 	}
-	
 }
 	

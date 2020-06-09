@@ -22,7 +22,7 @@ public class RegistrationService {
 	@Autowired
 	private EmailInfoRepository accOpeningEmailInfoRepository;	
 	
-	public String createAccount(Registration accOpeningReg) throws Exception {
+	public Registration createAccount(Registration accOpeningReg) throws Exception {
 		System.out.println("inside createAccount sequence is:"+accOpeningReg.getAccountOpeningRegInfoId());
 		boolean isMailSend = false;
 		String returnVal ="";
@@ -47,7 +47,7 @@ public class RegistrationService {
 			returnVal ="Exception while email sending please try again";
 		}
 		
-		return returnVal;
+		return accOpeningReg;
 	}
 }
 

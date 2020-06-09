@@ -34,7 +34,7 @@ public class EmailInfo implements Serializable {
 	private boolean emailVerified = false;
 	
 	@OneToOne(cascade =CascadeType.ALL , fetch = FetchType.EAGER)
-	@JoinColumn(name="acc_opening_reg_info_id", referencedColumnName="acc_opening_reg_info_id")
+	@JoinColumn(name="account_opening_reg_info_id", referencedColumnName="acc_opening_reg_info_id")
 	private Registration accOpeningReg;
 	
 	
