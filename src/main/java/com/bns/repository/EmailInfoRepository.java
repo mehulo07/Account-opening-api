@@ -8,10 +8,12 @@ import org.springframework.stereotype.Repository;
 import com.bns.model.EmailInfo;
 
 @Repository
-public interface EmailInfoRepository extends JpaRepository<com.bns.model.EmailInfo,Long> {
+public interface EmailInfoRepository extends JpaRepository<com.bns.model.EmailInfo, Long> {
 
-		@Query(value = "select * from acc_opening_email_info_tab g where g.account_opening_reg_info_id = :ReferanceId",nativeQuery = true)
-		EmailInfo findByReferanceId(@Param("ReferanceId") Long ReferanceId);
+	@Query(value = "select * from acc_opening_email_info_tab g where g.account_opening_reg_info_id = :ReferanceId", nativeQuery = true)
+	EmailInfo findByReferanceId(@Param("ReferanceId") Long ReferanceId);
 
-	
+	@Query(value = "select * from acc_opening_email_info_tab g where g.account_opening_reg_info_id = :ReferanceId and g.email_verified='Y'", nativeQuery = true)
+	EmailInfo findByReferanceIdCheckVerify(@Param("ReferanceId") Long ReferanceId);
+
 }

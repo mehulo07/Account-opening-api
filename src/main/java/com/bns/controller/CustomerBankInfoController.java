@@ -23,8 +23,9 @@ import com.bns.exception.ResourceNotFoundException;
 import com.bns.model.CustomerBankInfo;
 import com.bns.service.CustomerBankInfoService;
 
-@CrossOrigin()
+
 @RestController
+@CrossOrigin()
 @RequestMapping("/v1/openAccount")
 public class CustomerBankInfoController {
 	private final Logger log = LogManager.getLogger(this.getClass());

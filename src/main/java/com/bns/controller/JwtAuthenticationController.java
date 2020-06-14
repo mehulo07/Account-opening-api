@@ -14,11 +14,14 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bns.config.JwtTokenUtil;
 import com.bns.model.JwtRequest;
 import com.bns.model.JwtResponse;
+
+import net.sf.json.JSONObject;
 
 @RestController
 @CrossOrigin
@@ -35,15 +38,19 @@ public class JwtAuthenticationController {
 	private UserDetailsService jwtInMemoryUserDetailsService;
 
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
-	public ResponseEntity<?> generateAuthenticationToken(@RequestBody JwtRequest authenticationRequest)
+	public ResponseEntity<?> generateAuthenticationToken(@RequestParam("username") String username,@RequestParam("pass") String pass)
 			throws Exception {
 
-		authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
+		authenticate(username, pass);
 
 		final UserDetails userDetails = jwtInMemoryUserDetailsService
-				.loadUserByUsername(authenticationRequest.getUsername());
+				.loadUserByUsername(username);
 
 		final String token = jwtTokenUtil.generateToken(userDetails);
+//		JSONObject json = new JSONObject();
+//		json.put("Status", 200);
+//		json.put("Message", "Your Email address is verified");
+
 
 		return ResponseEntity.ok(new JwtResponse(token));
 	}
