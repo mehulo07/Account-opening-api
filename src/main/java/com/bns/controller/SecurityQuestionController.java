@@ -26,6 +26,8 @@ import com.bns.repository.SecurityQuestionMasterRepository;
 import com.bns.service.SecurityQueService;
 import com.bns.service.SecurityQuestionMasterService;
 
+import net.sf.json.JSONObject;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/v1/openAccount")
@@ -57,14 +59,20 @@ public class SecurityQuestionController {
 	}
 
 	@PostMapping("/securityQuestionAnswer")
-	public SecurityQue saveQuestionAndAns(@Valid @RequestBody SecurityQue accountOpeningSecurityQue) throws Exception {
+	public JSONObject saveQuestionAndAns(@Valid @RequestBody SecurityQue accountOpeningSecurityQue) throws Exception {
 
 		int reg = accountOpeningSecurityQue.getAccOpeningReg().getAccountOpeningRegInfoId();
 
 		Registration accOpeningReg = accOpeningRegRepository.findById(reg).get();
 
 		accountOpeningSecurityQue.setAccOpeningReg(accOpeningReg);
-		return accountOpeningSecurityQueService.createAccountOpeningSecurityQue(accountOpeningSecurityQue);
+		JSONObject json = new JSONObject();
+		json.put("status", 200);
+		json.put("message", "Successfully Added");
+		json.put("securityQuestionAnswer",
+				accountOpeningSecurityQueService.createAccountOpeningSecurityQue(accountOpeningSecurityQue));
+
+		return json;
 
 	}
 

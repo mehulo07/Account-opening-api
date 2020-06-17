@@ -29,7 +29,7 @@ public class CompanyTypeMaster implements Serializable{
 
 	@Id
     @Column(name = "company_id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long  companyId;
 	
     @Column(name = "company_name", nullable = false,length = 100)

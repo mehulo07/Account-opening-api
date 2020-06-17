@@ -29,7 +29,7 @@ public class VerificationToken implements Serializable {
 
 	@Id
 	@Column(name = "verification_token_id", nullable = false)
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long verificationTokenTabId;
 
 	@Column(name = "temp_token", nullable = false, length = 100)

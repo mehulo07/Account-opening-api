@@ -23,6 +23,8 @@ import com.bns.repository.BusinessInfoRepository;
 import com.bns.repository.DirectorInfoRepository;
 import com.bns.service.DirectorInfoService;
 
+import net.sf.json.JSONObject;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/v1/openAccount")
@@ -37,14 +39,18 @@ public class DirectorInfoController {
 	private DirectorInfoService accountOpeningDirectorInfoService;
 
 	@PostMapping("/accountOpeningDirectorInfo")
-	public DirectorInfo accountOpeningDirectorInfoSave(
-			@Valid @RequestBody DirectorInfo accountOpeningDirectorInfo) throws Exception {
+	public DirectorInfo accountOpeningDirectorInfoSave(@Valid @RequestBody DirectorInfo accountOpeningDirectorInfo)
+			throws Exception {
 
 		long businessinfoid = accountOpeningDirectorInfo.getAccountOpeningBusinessInfo()
 				.getAccountOpeningBusinessInfoId();
-		BusinessInfo accountOpeningBusinessInfo = accountOpeningBusinessInfoRepository
-				.findById(businessinfoid).get();
+		BusinessInfo accountOpeningBusinessInfo = accountOpeningBusinessInfoRepository.findById(businessinfoid).get();
 		accountOpeningDirectorInfo.setAccountOpeningBusinessInfo(accountOpeningBusinessInfo);
+//		JSONObject json = new JSONObject();
+//		json.put("Status", 200);
+//		json.put("message", "Successfully Added");
+//		json.put("accountOpeningDirectorInfo",
+//				);
 
 		return accountOpeningDirectorInfoService.createAccountOpeningDirectorInfo(accountOpeningDirectorInfo);
 
@@ -62,16 +68,14 @@ public class DirectorInfoController {
 
 	// reg id getAll List
 	@GetMapping("/accountOpeningDirectorInfoByBusinessinfoId/{id}")
-	public List<DirectorInfo> getAccountOpeningDirectorInfoBusinessID(
-			@PathVariable(value = "id") Long businessinfoId) {
+	public List<DirectorInfo> getAccountOpeningDirectorInfoBusinessID(@PathVariable(value = "id") Long businessinfoId) {
 		return accountOpeningDirectorInfoRepository.findByBusinessInfoId(businessinfoId);
 	}
 
 	@PutMapping("/accountOpeningDirectorInfo/{id}")
 	public ResponseEntity<DirectorInfo> updateAccountOpeningDirectorInfo(
 			@PathVariable(value = "id") Long accountOpeningDirectorInfoId,
-			@Valid @RequestBody DirectorInfo accountOpeningDirectorInfo)
-			throws ResourceNotFoundException {
+			@Valid @RequestBody DirectorInfo accountOpeningDirectorInfo) throws ResourceNotFoundException {
 
 		DirectorInfo accountOpeningDirectorInfo1 = accountOpeningDirectorInfoService
 				.updateAccountOpeningDirectorInfo(accountOpeningDirectorInfoId, accountOpeningDirectorInfo);

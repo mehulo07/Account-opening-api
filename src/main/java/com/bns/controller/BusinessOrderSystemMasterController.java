@@ -32,34 +32,35 @@ public class BusinessOrderSystemMasterController {
 	private BusinessOrderSystemMasterRepository businessOrderSystemRepository;
 	@Autowired
 	private BusinessOrderSystemMasterService businessOrderSystemService;
-	
-	// Business Order System creation
-				@PostMapping("/businessOrderSystem")
-				public BusinessOrderSystemMaster createBusinessOrderSystem(@Valid @RequestBody BusinessOrderSystemMaster businessOrderSystem) throws Exception {
-				
-						Long businessTypeid= businessOrderSystem.getBusinessType().getBusinessTypeId();
 
-						BusinessTypeMaster businessType = businessTypeRepository.findById(businessTypeid).get();
-						businessOrderSystem.setBusinessType(businessType);
-						
-						return businessOrderSystemService.createBusinessOrderSystem(businessOrderSystem);
-					
-				}
-				
-				// Business Order System  getAll List Value by BusinessTypeID
-				@GetMapping("/businessOrderSystemBusinessTypeID/{id}")
-				public List<BusinessOrderSystemMaster> getBusinessOrderSystemBusinessTypeID(@PathVariable(value = "id") Long businessTypeID) throws Exception {
-					return businessOrderSystemRepository.findByBusinessTypeID(businessTypeID);
-				}
-				
-				
-				@GetMapping("/businessOrderSystem/{id}")
-				public ResponseEntity<BusinessOrderSystemMaster> businessOrderSystemList(
-						@PathVariable(value = "id") Long businessOrderSystemId) throws ResourceNotFoundException {
-					BusinessOrderSystemMaster businessOrderSystem = businessOrderSystemService
-							.getBusinessOrderSystemId(businessOrderSystemId).orElseThrow(() -> new ResourceNotFoundException(
-									"Business Order System not found for this id :: " + businessOrderSystemId));
-					return ResponseEntity.ok().body(businessOrderSystem);
-				}
+	// Business Order System creation
+	@PostMapping("/businessOrderSystem")
+	public BusinessOrderSystemMaster createBusinessOrderSystem(
+			@Valid @RequestBody BusinessOrderSystemMaster businessOrderSystem) throws Exception {
+
+		Long businessTypeid = businessOrderSystem.getBusinessType().getBusinessTypeId();
+
+		BusinessTypeMaster businessType = businessTypeRepository.findById(businessTypeid).get();
+		businessOrderSystem.setBusinessType(businessType);
+
+		return businessOrderSystemService.createBusinessOrderSystem(businessOrderSystem);
+
+	}
+
+	// Business Order System getAll List Value by BusinessTypeID
+	@GetMapping("/businessOrderSystemBusinessTypeID/{id}")
+	public List<BusinessOrderSystemMaster> getBusinessOrderSystemBusinessTypeID(
+			@PathVariable(value = "id") Long businessTypeID) throws Exception {
+		return businessOrderSystemRepository.findByBusinessTypeID(businessTypeID);
+	}
+
+	@GetMapping("/businessOrderSystem/{id}")
+	public ResponseEntity<BusinessOrderSystemMaster> businessOrderSystemList(
+			@PathVariable(value = "id") Long businessOrderSystemId) throws ResourceNotFoundException {
+		BusinessOrderSystemMaster businessOrderSystem = businessOrderSystemService
+				.getBusinessOrderSystemId(businessOrderSystemId).orElseThrow(() -> new ResourceNotFoundException(
+						"Business Order System not found for this id :: " + businessOrderSystemId));
+		return ResponseEntity.ok().body(businessOrderSystem);
+	}
 
 }

@@ -44,10 +44,10 @@ public class EmailService {
 		System.out.println("Create Temp Token" + tokenSupplier.get());
 
 		VerificationToken verificationToken = verificationTokenRepository.findByaccRegId(regId);
-
+		VerificationToken vt = new VerificationToken();
 		if (verificationToken.equals(null)) {
 
-			VerificationToken vt = new VerificationToken();
+			
 			vt.setAccOpeningReg(accOpeningRegObject);
 			vt.setTempToken(tokenSupplier.get());
 			vt.setCreateToken(LocalDateTime.now());
@@ -57,21 +57,21 @@ public class EmailService {
 			verificationTokenRepository.save(vt);
 
 		} else {
-			VerificationToken vtupdate = new VerificationToken();
-			vtupdate.setVerificationTokenTabId(verificationToken.getVerificationTokenTabId());
-			vtupdate.setAccOpeningReg(verificationToken.getAccOpeningReg());
-			vtupdate.setTempToken(tokenSupplier.get());
-			vtupdate.setTempToken(tokenSupplier.get());
-			vtupdate.setCreateToken(LocalDateTime.now());
+//			VerificationToken vtupdate = new VerificationToken();
+			vt.setVerificationTokenTabId(verificationToken.getVerificationTokenTabId());
+			vt.setAccOpeningReg(verificationToken.getAccOpeningReg());
+			vt.setTempToken(tokenSupplier.get());
+			vt.setTempToken(tokenSupplier.get());
+			vt.setCreateToken(LocalDateTime.now());
 			LocalDateTime tomorrow = LocalDateTime.now().plusDays(1);
-			vtupdate.setExpToken(tomorrow);
+			vt.setExpToken(tomorrow);
 
-			verificationTokenRepository.save(vtupdate);
+			verificationTokenRepository.save(vt);
 
 		}
 
 		returnVal = verificationMailSendingCls.sendMailFuncNewOne(accOpeningRegObject.getRegEmailAddress(), regId, true,
-				url,tokenSupplier.get());
+				url,vt.getTempToken());
 		String t = "Email sent";
 
 		if (returnVal) {

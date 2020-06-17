@@ -25,7 +25,7 @@ public class DirectorInfo implements Serializable{
 	
 	@Id
     @Column(name = "acc_opening_director_info_id",nullable = false)
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long  accountOpeningDirectorInfoId;
 	
 	  

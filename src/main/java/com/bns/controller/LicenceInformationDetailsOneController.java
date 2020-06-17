@@ -23,6 +23,8 @@ import com.bns.repository.BusinessInfoRepository;
 import com.bns.repository.LicenceInformationDetailsOneRepository;
 import com.bns.service.LicenceInformationDetailsOneService;
 
+import net.sf.json.JSONObject;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/v1/openAccount")
@@ -42,9 +44,13 @@ public class LicenceInformationDetailsOneController {
 
 		long businessinfoid = licenceInformationDetailsOne.getAccountOpeningBusinessInfo()
 				.getAccountOpeningBusinessInfoId();
-		BusinessInfo accountOpeningBusinessInfo = accountOpeningBusinessInfoRepository
-				.findById(businessinfoid).get();
+		BusinessInfo accountOpeningBusinessInfo = accountOpeningBusinessInfoRepository.findById(businessinfoid).get();
 		licenceInformationDetailsOne.setAccountOpeningBusinessInfo(accountOpeningBusinessInfo);
+//		JSONObject json = new JSONObject();
+//		json.put("Status", 200);
+//		json.put("message", "Successfully Added");
+//		json.put("licenceInformationDetailsOne",
+//				);
 
 		return licenceInformationDetailsOneService.createLicenceInformationDetailsOne(licenceInformationDetailsOne);
 

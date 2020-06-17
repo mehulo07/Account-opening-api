@@ -25,6 +25,8 @@ import com.bns.repository.LicenceInformationDetailsOneRepository;
 import com.bns.service.BusinessInformationWorkingHoursService;
 import com.bns.service.LicenceInformationDetailsOneService;
 
+import net.sf.json.JSONObject;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/v1/openAccount")
@@ -44,12 +46,17 @@ public class BusinessInformationWorkingHoursController {
 
 		long businessinfoid = businessInformationWorkingHours.getAccountOpeningBusinessInfo()
 				.getAccountOpeningBusinessInfoId();
-		BusinessInfo accountOpeningBusinessInfo = accountOpeningBusinessInfoRepository
-				.findById(businessinfoid).get();
+		BusinessInfo accountOpeningBusinessInfo = accountOpeningBusinessInfoRepository.findById(businessinfoid).get();
 		businessInformationWorkingHours.setAccountOpeningBusinessInfo(accountOpeningBusinessInfo);
+
+//		JSONObject json = new JSONObject();
+//		json.put("Status", 200);
+//		json.put("message", "Successfully Added");
+//		json.put("businessInformationWorkingHours", );
 
 		return businessInformationWorkingHoursService
 				.createBusinessInformationWorkingHours(businessInformationWorkingHours);
+
 	}
 
 	@GetMapping("/businessInformationWorkingHours/{id}")
@@ -60,25 +67,26 @@ public class BusinessInformationWorkingHoursController {
 						() -> new ResourceNotFoundException("BusinessInformationWorkingHours not found for this id :: "
 								+ businessInformationWorkingHoursId));
 		return ResponseEntity.ok().body(businessInformationWorkingHours);
-		
+
 	}
-	
+
 	// reg id getAll List
-		@GetMapping("/businessInformationWorkingHoursByBusinessinfoId/{id}")
-		public List<BusinessInformationWorkingHours> getBusinessInformationWorkingHoursBusinessID(
-				@PathVariable(value = "id") Long businessinfoId) {
-			return businessInformationWorkingHoursRepository.findByBusinessInfoId(businessinfoId);
-		}
+	@GetMapping("/businessInformationWorkingHoursByBusinessinfoId/{id}")
+	public List<BusinessInformationWorkingHours> getBusinessInformationWorkingHoursBusinessID(
+			@PathVariable(value = "id") Long businessinfoId) {
+		return businessInformationWorkingHoursRepository.findByBusinessInfoId(businessinfoId);
+	}
 
-		@PutMapping("/businessInformationWorkingHours/{id}")
-		public ResponseEntity<BusinessInformationWorkingHours> updateBusinessInformationWorkingHours(
-				@PathVariable(value = "id") Long businessInformationWorkingHoursId,
-				@Valid @RequestBody BusinessInformationWorkingHours businessInformationWorkingHours)
-				throws ResourceNotFoundException {
+	@PutMapping("/businessInformationWorkingHours/{id}")
+	public ResponseEntity<BusinessInformationWorkingHours> updateBusinessInformationWorkingHours(
+			@PathVariable(value = "id") Long businessInformationWorkingHoursId,
+			@Valid @RequestBody BusinessInformationWorkingHours businessInformationWorkingHours)
+			throws ResourceNotFoundException {
 
-			BusinessInformationWorkingHours businessInformationWorkingHours1 = businessInformationWorkingHoursService
-					.updateBusinessInformationWorkingHours(businessInformationWorkingHoursId, businessInformationWorkingHours);
-			return ResponseEntity.ok(businessInformationWorkingHours1);
-		}
+		BusinessInformationWorkingHours businessInformationWorkingHours1 = businessInformationWorkingHoursService
+				.updateBusinessInformationWorkingHours(businessInformationWorkingHoursId,
+						businessInformationWorkingHours);
+		return ResponseEntity.ok(businessInformationWorkingHours1);
+	}
 
 }

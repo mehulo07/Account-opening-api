@@ -26,7 +26,7 @@ public class BusinessBuyingGroupMaster implements Serializable {
 	
 	@Id
     @Column(name = "business_Buying_Group_id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long  businessBuyingGroupId;
 	
     @Column(name = "business_Buying_Group_name", nullable = false,length = 100)

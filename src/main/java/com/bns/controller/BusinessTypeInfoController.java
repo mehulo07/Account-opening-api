@@ -22,6 +22,8 @@ import com.bns.repository.BusinessInfoRepository;
 import com.bns.repository.BusinessTypeInfoRepository;
 import com.bns.service.BusinessTypeInfoService;
 
+import net.sf.json.JSONObject;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/v1/openAccount")
@@ -41,9 +43,13 @@ public class BusinessTypeInfoController {
 
 		long businessinfoid = accountOpeningBusinessTypeInfo.getAccountOpeningBusinessInfo()
 				.getAccountOpeningBusinessInfoId();
-		BusinessInfo accountOpeningBusinessInfo = accountOpeningBusinessInfoRepository
-				.findById(businessinfoid).get();
+		BusinessInfo accountOpeningBusinessInfo = accountOpeningBusinessInfoRepository.findById(businessinfoid).get();
 		accountOpeningBusinessTypeInfo.setAccountOpeningBusinessInfo(accountOpeningBusinessInfo);
+
+//		JSONObject json = new JSONObject();
+//		json.put("Status", 200);
+//		json.put("message", "Successfully Added");
+//		json.put("accountOpeningBusinessTypeInfo", );
 
 		return accountOpeningBusinessTypeInfoService
 				.createAccountOpeningBusinessTypeInfo(accountOpeningBusinessTypeInfo);
@@ -71,8 +77,7 @@ public class BusinessTypeInfoController {
 	@PutMapping("/accountOpeningBusinessTypeInfo/{id}")
 	public ResponseEntity<BusinessTypeInfo> updateAccountOpeningBusinessTypeInfo(
 			@PathVariable(value = "id") Long accountOpeningBusinessTypeInfoId,
-			@Valid @RequestBody BusinessTypeInfo accountOpeningBusinessTypeInfo)
-			throws ResourceNotFoundException {
+			@Valid @RequestBody BusinessTypeInfo accountOpeningBusinessTypeInfo) throws ResourceNotFoundException {
 
 		BusinessTypeInfo accountOpeningBusinessTypeInfo1 = accountOpeningBusinessTypeInfoService
 				.updateAccountOpeningBusinessTypeInfo(accountOpeningBusinessTypeInfoId, accountOpeningBusinessTypeInfo);

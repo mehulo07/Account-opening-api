@@ -5,8 +5,7 @@ import java.time.LocalDateTime;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
@@ -81,25 +80,25 @@ public class EmailController {
 		return emailService.resendEmailService(id, url,mailadd);
 	}
 
-	@GetMapping("/checkEmailVerify/{id}")
-	public Response checkEmailVerify(@PathVariable(value = "id") String accRegId) throws Exception {
-		EmailInfo accOpeningEmailInfo = accOpeningEmailInfoRepository
-				.findByReferanceIdCheckVerify(Long.valueOf(accRegId));
-		JSONObject json = new JSONObject();
-
-		if (accOpeningEmailInfo == null) {
-
-			json.put("EmailInfo", accOpeningEmailInfo);
-			json.put("Message", "Your Email address is not verified.");
-			return Response.status(Status.NOT_FOUND).entity(json).build();
-		} else {
-
-			json.put("EmailInfo", accOpeningEmailInfo);
-			json.put("Message", "Your Email address is verified.");
-			return Response.status(Status.OK).entity(json).build();
-		}
-
-	}
+//	@GetMapping("/checkEmailVerify/{id}")
+//	public Response checkEmailVerify(@PathVariable(value = "id") String accRegId) throws Exception {
+//		EmailInfo accOpeningEmailInfo = accOpeningEmailInfoRepository
+//				.findByReferanceIdCheckVerify(Long.valueOf(accRegId));
+//		JSONObject json = new JSONObject();
+//
+//		if (accOpeningEmailInfo == null) {
+//
+//			json.put("EmailInfo", accOpeningEmailInfo);
+//			json.put("Message", "Your Email address is not verified.");
+//			return Response.status(Status.NOT_FOUND).entity(json).build();
+//		} else {
+//
+//			json.put("EmailInfo", accOpeningEmailInfo);
+//			json.put("Message", "Your Email address is verified.");
+//			return Response.status(Status.OK).entity(json).build();
+//		}
+//
+//	}
 
 	@GetMapping("/checkVerficationEmail")
 	public ResponseEntity<?> checkVerficationEmail(@RequestParam(value = "id") Integer accRegId,

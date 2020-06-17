@@ -28,7 +28,7 @@ public class BusinessInfo implements Serializable {
 
 	@Id
 	@Column(name = "acc_opening_business_info_id", nullable = false)
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long accountOpeningBusinessInfoId;
 
 	@OneToOne(fetch = FetchType.EAGER, targetEntity = CompanyTypeMaster.class, cascade = CascadeType.ALL)

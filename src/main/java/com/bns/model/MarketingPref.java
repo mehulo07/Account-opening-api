@@ -25,7 +25,7 @@ public class MarketingPref implements Serializable  {
 	
 	@Id
     @Column(name = "acc_opening_market_pref_id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long  accountOpeningMarketingPrefId;
 	
     @Column(name = "marketing_Email",columnDefinition = "TINYINT(1)")

@@ -25,7 +25,7 @@ public class BusinessOrderSystemMaster implements Serializable{
 	
 	@Id
     @Column(name = "business_Order_System_id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long  businessOrderSystemId;
 	
     @Column(name = "business_Order_System_name", nullable = false,length = 100)

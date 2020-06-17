@@ -24,6 +24,8 @@ import com.bns.repository.LicenceInformationDetailsTwoRepository;
 
 import com.bns.service.LicenceInformationDetailsTwoService;
 
+import net.sf.json.JSONObject;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/v1/openAccount")
@@ -43,9 +45,14 @@ public class LicenceInformationDetailsTwoController {
 
 		long businessinfoid = licenceInformationDetailsTwo.getAccountOpeningBusinessInfo()
 				.getAccountOpeningBusinessInfoId();
-		BusinessInfo accountOpeningBusinessInfo = accountOpeningBusinessInfoRepository
-				.findById(businessinfoid).get();
+		BusinessInfo accountOpeningBusinessInfo = accountOpeningBusinessInfoRepository.findById(businessinfoid).get();
 		licenceInformationDetailsTwo.setAccountOpeningBusinessInfo(accountOpeningBusinessInfo);
+//
+//		JSONObject json = new JSONObject();
+//		json.put("Status", 200);
+//		json.put("message", "Successfully Added");
+//		json.put("licenceInformationDetailsTwo",
+//				);
 
 		return licenceInformationDetailsTwoService.createLicenceInformationDetailsTwo(licenceInformationDetailsTwo);
 
@@ -60,24 +67,23 @@ public class LicenceInformationDetailsTwoController {
 						"licenceInformationDetailsTwoId not found for this id :: " + licenceInformationDetailsTwoId));
 		return ResponseEntity.ok().body(licenceInformationDetailsTwo);
 	}
-	
+
 	// reg id getAll List
-		@GetMapping("/licenceInformationDetailsTwoByBusinessinfoId/{id}")
-		public List<LicenceInformationDetailsTwo> getLicenceInformationDetailsTwoBusinessID(
-				@PathVariable(value = "id") Long businessinfoId) {
-			return licenceInformationDetailsTwoRepository.findByBusinessInfoId(businessinfoId);
-		}
+	@GetMapping("/licenceInformationDetailsTwoByBusinessinfoId/{id}")
+	public List<LicenceInformationDetailsTwo> getLicenceInformationDetailsTwoBusinessID(
+			@PathVariable(value = "id") Long businessinfoId) {
+		return licenceInformationDetailsTwoRepository.findByBusinessInfoId(businessinfoId);
+	}
 
-		@PutMapping("/licenceInformationDetailsTwo/{id}")
-		public ResponseEntity<LicenceInformationDetailsTwo> updateLicenceInformationDetailsTwo(
-				@PathVariable(value = "id") Long licenceInformationDetailsTwoId,
-				@Valid @RequestBody LicenceInformationDetailsTwo licenceInformationDetailsTwo)
-				throws ResourceNotFoundException {
+	@PutMapping("/licenceInformationDetailsTwo/{id}")
+	public ResponseEntity<LicenceInformationDetailsTwo> updateLicenceInformationDetailsTwo(
+			@PathVariable(value = "id") Long licenceInformationDetailsTwoId,
+			@Valid @RequestBody LicenceInformationDetailsTwo licenceInformationDetailsTwo)
+			throws ResourceNotFoundException {
 
-			LicenceInformationDetailsTwo licenceInformationDetailsTwo1 = licenceInformationDetailsTwoService
-					.updateLicenceInformationDetailsTwo(licenceInformationDetailsTwoId, licenceInformationDetailsTwo);
-			return ResponseEntity.ok(licenceInformationDetailsTwo1);
-		}
-
+		LicenceInformationDetailsTwo licenceInformationDetailsTwo1 = licenceInformationDetailsTwoService
+				.updateLicenceInformationDetailsTwo(licenceInformationDetailsTwoId, licenceInformationDetailsTwo);
+		return ResponseEntity.ok(licenceInformationDetailsTwo1);
+	}
 
 }

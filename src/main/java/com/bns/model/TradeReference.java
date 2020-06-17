@@ -25,7 +25,7 @@ public class TradeReference implements Serializable {
 
 	@Id
 	@Column(name = "acc_opening_trade_ref_id", nullable = false)
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long accountOpeningTradeReferenceId;
 
 	@Column(name = "company_Name", nullable = false, length = 100)

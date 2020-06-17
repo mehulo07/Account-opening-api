@@ -28,7 +28,7 @@ public class AccountAddress  implements Serializable{
 	
 	@Id
     @Column(name = "acc_opening_address_tab_id",nullable = false)
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long  accountOpeningAddressTabId;
 	
 	  

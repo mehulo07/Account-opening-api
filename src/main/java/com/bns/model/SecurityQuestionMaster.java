@@ -21,7 +21,7 @@ public class SecurityQuestionMaster implements Serializable {
 
 	@Id
     @Column(name = "security_question_id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long  securityQuestionId;
 	
     @Column(name = "security_Question_Name", nullable = false,length = 100)

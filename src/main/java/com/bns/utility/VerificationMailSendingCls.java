@@ -243,6 +243,8 @@ public class VerificationMailSendingCls {
 	 public boolean sendMailFuncNewOne(String reciverMail, int uniqueId, boolean resendFlag, String url,String token) {
 			boolean returnVal = false;
 			String mailKey = "";
+			
+//			System.out.print("mail:"+token);
 			final String mailValidationURL = url+"key="+token+"&id="+uniqueId+"&email="+reciverMail;
 			final String resendMailValidationURL = url;
 			System.out.println("Application COntext path is TEMPDIR :" + ApplicationContext.TEMPDIR);

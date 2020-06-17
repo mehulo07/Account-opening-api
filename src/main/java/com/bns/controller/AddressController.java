@@ -22,6 +22,8 @@ import com.bns.repository.AddressRepository;
 import com.bns.repository.BusinessInfoRepository;
 import com.bns.service.AddressService;
 
+import net.sf.json.JSONObject;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/v1/openAccount")
@@ -37,7 +39,7 @@ public class AddressController {
 	private AddressService accountOpeningAddressTabService;
 
 	@PostMapping("/accountOpeningAddressTab")
-	public AccountAddress accountOpeningAddressTabSave(
+	public  AccountAddress accountOpeningAddressTabSave(
 			@Valid @RequestBody AccountAddress accountOpeningAddressTab) throws Exception {
 
 		Long businessinfoid = accountOpeningAddressTab.getAccountOpeningBusinessInfo()
@@ -47,6 +49,11 @@ public class AddressController {
 		BusinessInfo accountOpeningBusinessInfo = businessInfoRepository.findById(businessinfoid).orElseThrow(()
 				-> new ResourceNotFoundException("Business info not found"));
 		accountOpeningAddressTab.setAccountOpeningBusinessInfo(accountOpeningBusinessInfo);
+//		JSONObject json =new JSONObject();
+//		json.put("Status", "200");
+//		json.put("Message", "Sucessfully Added");
+//		json.put("accountOpeningAddressTab", );
+		
 
 		return accountOpeningAddressTabService.createAccountOpeningAddressTab(accountOpeningAddressTab);
 

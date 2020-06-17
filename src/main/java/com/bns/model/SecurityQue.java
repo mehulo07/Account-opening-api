@@ -20,7 +20,7 @@ public class SecurityQue implements Serializable {
 
 	@Id
     @Column(name = "acc_opening_sec_que_id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long  accountOpeningSecurityQueId;
 	
     @Column(name = "security_Question_One", nullable = false,length = 200)

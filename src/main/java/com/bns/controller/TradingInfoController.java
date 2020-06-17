@@ -24,6 +24,8 @@ import com.bns.repository.BusinessInfoRepository;
 import com.bns.repository.TradingInfoRepository;
 import com.bns.service.TradingInfoService;
 
+import net.sf.json.JSONObject;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/v1/openAccount")
@@ -38,14 +40,18 @@ public class TradingInfoController {
 	private TradingInfoService accountOpeningTradingInfoService;
 
 	@PostMapping("/accountOpeningTradingInfo")
-	public TradingInfo accountOpeningTradingInfoSave(
-			@Valid @RequestBody TradingInfo accountOpeningTradingInfo) throws Exception {
+	public TradingInfo accountOpeningTradingInfoSave(@Valid @RequestBody TradingInfo accountOpeningTradingInfo)
+			throws Exception {
 
 		long businessinfoid = accountOpeningTradingInfo.getAccountOpeningBusinessInfo()
 				.getAccountOpeningBusinessInfoId();
-		BusinessInfo accountOpeningBusinessInfo = accountOpeningBusinessInfoRepository
-				.findById(businessinfoid).get();
+		BusinessInfo accountOpeningBusinessInfo = accountOpeningBusinessInfoRepository.findById(businessinfoid).get();
 		accountOpeningTradingInfo.setAccountOpeningBusinessInfo(accountOpeningBusinessInfo);
+//		JSONObject json = new JSONObject();
+//		json.put("Status", 200);
+//		json.put("message", "Successfully Added");
+//		json.put("accountOpeningTradingInfo",
+//				);
 
 		return accountOpeningTradingInfoService.createAccountOpeningTradingInfo(accountOpeningTradingInfo);
 
@@ -63,8 +69,7 @@ public class TradingInfoController {
 
 	// reg id getAll List
 	@GetMapping("/accountOpeningTradingInfoByBusinessinfoId/{id}")
-	public List<TradingInfo> getAccountOpeningTradingInfoBusinessID(
-			@PathVariable(value = "id") Long businessinfoId) {
+	public List<TradingInfo> getAccountOpeningTradingInfoBusinessID(@PathVariable(value = "id") Long businessinfoId) {
 		return accountOpeningTradingInfoRepository.findByBusinessInfoId(businessinfoId);
 	}
 

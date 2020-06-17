@@ -58,21 +58,21 @@ public class TradingInformationDetailsService {
 		BusinessInfo accountOpeningBusinessInfo = accountOpeningBusinessInfoRepository
 				.findById(businessinfoid).get();
 		tradingInformationDetails1.setAccountOpeningBusinessInfo(accountOpeningBusinessInfo);
-		long suppierid = tradingInformationDetails.getBusinessSupplier().getBusinessSupplierId();
-		BusinessSupplierMaster businessSupplier = businessSupplierRepository.findById(suppierid).get();
-		tradingInformationDetails1.setBusinessSupplier(businessSupplier);
-
-		long businessPmrid = tradingInformationDetails.getBusinessPmr().getBusinessPmrId();
-		BusinessPmrMaster businessPmr = businessPmrRepository.findById(businessPmrid).get();
-		tradingInformationDetails1.setBusinessPmr(businessPmr);
-
-		long businessSystemId = tradingInformationDetails.getBusinessOrderSystem().getBusinessOrderSystemId();
-		BusinessOrderSystemMaster businessOrderSystem = businessOrderSystemRepository.findById(businessSystemId).get();
-		tradingInformationDetails1.setBusinessOrderSystem(businessOrderSystem);
-
-		long businessGpId = tradingInformationDetails.getBusinessBuyingGroup().getBusinessBuyingGroupId();
-		BusinessBuyingGroupMaster businessBuyingGroup = businessBuyingGroupRepository.findById(businessGpId).get();
-		tradingInformationDetails1.setBusinessBuyingGroup(businessBuyingGroup);
+//		long suppierid = tradingInformationDetails.getBusinessSupplier().getBusinessSupplierId();
+//		BusinessSupplierMaster businessSupplier = businessSupplierRepository.findById(suppierid).get();
+//		tradingInformationDetails1.setBusinessSupplier(businessSupplier);
+//
+//		long businessPmrid = tradingInformationDetails.getBusinessPmr().getBusinessPmrId();
+//		BusinessPmrMaster businessPmr = businessPmrRepository.findById(businessPmrid).get();
+//		tradingInformationDetails1.setBusinessPmr(businessPmr);
+//
+//		long businessSystemId = tradingInformationDetails.getBusinessOrderSystem().getBusinessOrderSystemId();
+//		BusinessOrderSystemMaster businessOrderSystem = businessOrderSystemRepository.findById(businessSystemId).get();
+//		tradingInformationDetails1.setBusinessOrderSystem(businessOrderSystem);
+//
+//		long businessGpId = tradingInformationDetails.getBusinessBuyingGroup().getBusinessBuyingGroupId();
+//		BusinessBuyingGroupMaster businessBuyingGroup = businessBuyingGroupRepository.findById(businessGpId).get();
+//		tradingInformationDetails1.setBusinessBuyingGroup(businessBuyingGroup);
 
 		tradingInformationDetails1.setBuyerName(tradingInformationDetails.getBuyerName());
 		tradingInformationDetails1.setEmailAdd(tradingInformationDetails.getEmailAdd());

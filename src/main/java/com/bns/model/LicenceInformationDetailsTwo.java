@@ -28,7 +28,7 @@ public class LicenceInformationDetailsTwo implements Serializable {
 
 	@Id
 	@Column(name = "lic_info_details_two_id", nullable = false)
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long licenceInformationDetailsTwoId;
 
 	@Temporal(TemporalType.DATE)

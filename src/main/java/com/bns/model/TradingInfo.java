@@ -26,7 +26,7 @@ public class TradingInfo  implements Serializable{
 	
 	@Id
     @Column(name = "acc_opening_trade_info_id",nullable = false)
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long  accountOpeningTradingInfoId;
 	
 	 @Column(name = "trading_Name", nullable = false,length = 100)

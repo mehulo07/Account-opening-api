@@ -25,7 +25,7 @@ public class BusinessSupplierMaster implements Serializable  {
 	
 	@Id
     @Column(name = "business_Supplier_id" )
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long  businessSupplierId;
 	
     @Column(name = "business_Supplier_name", nullable = false,length = 100)

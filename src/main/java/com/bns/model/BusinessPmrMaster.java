@@ -25,7 +25,7 @@ public class BusinessPmrMaster implements Serializable {
 	
 	@Id
     @Column(name = "business_Pmr_id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long  businessPmrId;
 	
     @Column(name = "business_Pmr_name", nullable = false,length = 100)

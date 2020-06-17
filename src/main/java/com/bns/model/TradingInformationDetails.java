@@ -25,7 +25,7 @@ public class TradingInformationDetails implements Serializable {
 
 	@Id
 	@Column(name = "trading_info_details_id", nullable = false)
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long tradingInformationDetailsId;
 
 	@OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessInfo.class, cascade = CascadeType.ALL)
@@ -51,32 +51,16 @@ public class TradingInformationDetails implements Serializable {
 	@Column(name = "other_Contact_Name", nullable = false, length = 45)
 	private String otherContactName;
 	
-	@OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessSupplierMaster.class, cascade = CascadeType.ALL)
-	@JoinColumn(name = "business_Supplier_id", columnDefinition = "int(15)", nullable = false)
-	private BusinessSupplierMaster businessSupplier;
 	
-	@OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessPmrMaster.class, cascade = CascadeType.ALL)
-	@JoinColumn(name = "business_pmr_id", columnDefinition = "int(15)", nullable = false)
-	private BusinessPmrMaster businessPmr;
-	
-	@OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessBuyingGroupMaster.class, cascade = CascadeType.ALL)
-	@JoinColumn(name = "business_buying_group_id", columnDefinition = "int(15)", nullable = false)
-	private BusinessBuyingGroupMaster businessBuyingGroup;
-	
-	@OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessOrderSystemMaster.class, cascade = CascadeType.ALL)
-	@JoinColumn(name = "business_order_system_id", columnDefinition = "int(15)", nullable = false)
-	private BusinessOrderSystemMaster businessOrderSystem;
-
 	public TradingInformationDetails() {
 		
 		// TODO Auto-generated constructor stub
 	}
 
-	public TradingInformationDetails(Long tradingInformationDetailsId,
-			BusinessInfo accountOpeningBusinessInfo, String telephoneNumber, String faxNumber,
-			String websiteurl, String buyerName, String moblieNo, String emailAdd, String otherContactName,
-			BusinessSupplierMaster businessSupplier, BusinessPmrMaster businessPmr, BusinessBuyingGroupMaster businessBuyingGroup,
-			BusinessOrderSystemMaster businessOrderSystem) {
+
+	public TradingInformationDetails(Long tradingInformationDetailsId, BusinessInfo accountOpeningBusinessInfo,
+			String telephoneNumber, String faxNumber, String websiteurl, String buyerName, String moblieNo,
+			String emailAdd, String otherContactName) {
 		super();
 		this.tradingInformationDetailsId = tradingInformationDetailsId;
 		this.accountOpeningBusinessInfo = accountOpeningBusinessInfo;
@@ -87,126 +71,108 @@ public class TradingInformationDetails implements Serializable {
 		this.moblieNo = moblieNo;
 		this.emailAdd = emailAdd;
 		this.otherContactName = otherContactName;
-		this.businessSupplier = businessSupplier;
-		this.businessPmr = businessPmr;
-		this.businessBuyingGroup = businessBuyingGroup;
-		this.businessOrderSystem = businessOrderSystem;
 	}
+
 
 	public Long getTradingInformationDetailsId() {
 		return tradingInformationDetailsId;
 	}
 
+
 	public void setTradingInformationDetailsId(Long tradingInformationDetailsId) {
 		this.tradingInformationDetailsId = tradingInformationDetailsId;
 	}
+
 
 	public BusinessInfo getAccountOpeningBusinessInfo() {
 		return accountOpeningBusinessInfo;
 	}
 
+
 	public void setAccountOpeningBusinessInfo(BusinessInfo accountOpeningBusinessInfo) {
 		this.accountOpeningBusinessInfo = accountOpeningBusinessInfo;
 	}
+
 
 	public String getTelephoneNumber() {
 		return telephoneNumber;
 	}
 
+
 	public void setTelephoneNumber(String telephoneNumber) {
 		this.telephoneNumber = telephoneNumber;
 	}
+
 
 	public String getFaxNumber() {
 		return faxNumber;
 	}
 
+
 	public void setFaxNumber(String faxNumber) {
 		this.faxNumber = faxNumber;
 	}
+
 
 	public String getWebsiteurl() {
 		return websiteurl;
 	}
 
+
 	public void setWebsiteurl(String websiteurl) {
 		this.websiteurl = websiteurl;
 	}
+
 
 	public String getBuyerName() {
 		return buyerName;
 	}
 
+
 	public void setBuyerName(String buyerName) {
 		this.buyerName = buyerName;
 	}
+
 
 	public String getMoblieNo() {
 		return moblieNo;
 	}
 
+
 	public void setMoblieNo(String moblieNo) {
 		this.moblieNo = moblieNo;
 	}
+
 
 	public String getEmailAdd() {
 		return emailAdd;
 	}
 
+
 	public void setEmailAdd(String emailAdd) {
 		this.emailAdd = emailAdd;
 	}
+
 
 	public String getOtherContactName() {
 		return otherContactName;
 	}
 
+
 	public void setOtherContactName(String otherContactName) {
 		this.otherContactName = otherContactName;
 	}
 
-	public BusinessSupplierMaster getBusinessSupplier() {
-		return businessSupplier;
-	}
-
-	public void setBusinessSupplier(BusinessSupplierMaster businessSupplier) {
-		this.businessSupplier = businessSupplier;
-	}
-
-	public BusinessPmrMaster getBusinessPmr() {
-		return businessPmr;
-	}
-
-	public void setBusinessPmr(BusinessPmrMaster businessPmr) {
-		this.businessPmr = businessPmr;
-	}
-
-	public BusinessBuyingGroupMaster getBusinessBuyingGroup() {
-		return businessBuyingGroup;
-	}
-
-	public void setBusinessBuyingGroup(BusinessBuyingGroupMaster businessBuyingGroup) {
-		this.businessBuyingGroup = businessBuyingGroup;
-	}
-
-	public BusinessOrderSystemMaster getBusinessOrderSystem() {
-		return businessOrderSystem;
-	}
-
-	public void setBusinessOrderSystem(BusinessOrderSystemMaster businessOrderSystem) {
-		this.businessOrderSystem = businessOrderSystem;
-	}
 
 	@Override
 	public String toString() {
 		return "TradingInformationDetails [tradingInformationDetailsId=" + tradingInformationDetailsId
 				+ ", accountOpeningBusinessInfo=" + accountOpeningBusinessInfo + ", telephoneNumber=" + telephoneNumber
 				+ ", faxNumber=" + faxNumber + ", websiteurl=" + websiteurl + ", buyerName=" + buyerName + ", moblieNo="
-				+ moblieNo + ", emailAdd=" + emailAdd + ", otherContactName=" + otherContactName + ", businessSupplier="
-				+ businessSupplier + ", businessPmr=" + businessPmr + ", businessBuyingGroup=" + businessBuyingGroup
-				+ ", businessOrderSystem=" + businessOrderSystem + "]";
+				+ moblieNo + ", emailAdd=" + emailAdd + ", otherContactName=" + otherContactName + "]";
 	}
-	
+
+		
 	
 
 	

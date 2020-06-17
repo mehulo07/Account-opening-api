@@ -23,6 +23,8 @@ import com.bns.repository.RegistrationRepository;
 import com.bns.repository.LinkedAccRepository;
 import com.bns.service.LinkedAccService;
 
+import net.sf.json.JSONObject;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/v1/openAccount")
@@ -38,14 +40,20 @@ public class LinkedAccController {
 	private LinkedAccService accountOpeningLinkedAccService;
 
 	@PostMapping("/accountOpeningLinkedAcc")
-	public LinkedAccount saveAccountOpeningLinkedAcc(
-			@Valid @RequestBody LinkedAccount accountOpeningLinkedAcc) throws Exception {
+	public LinkedAccount saveAccountOpeningLinkedAcc(@Valid @RequestBody LinkedAccount accountOpeningLinkedAcc)
+			throws Exception {
 
 		int reg = accountOpeningLinkedAcc.getAccOpeningReg().getAccountOpeningRegInfoId();
 
 		Registration accOpeningReg = accOpeningRegRepository.findById(reg).get();
 
 		accountOpeningLinkedAcc.setAccOpeningReg(accOpeningReg);
+//		JSONObject json = new JSONObject();
+//		json.put("status", 200);
+//		json.put("message", "Sucessfully Added");
+//		json.put("accountOpeningLinkedAcc",
+//				);
+
 		return accountOpeningLinkedAccService.createAccountOpeningLinkedAcc(accountOpeningLinkedAcc);
 
 	}
@@ -62,8 +70,7 @@ public class LinkedAccController {
 
 	// BusinessType getAll List Value by companyID
 	@GetMapping("/accountOpeningLinkedAccRegID/{id}")
-	public List<LinkedAccount> getAccountOpeningLinkedAccListByAccRegID(
-			@PathVariable(value = "id") Long accRegId) {
+	public List<LinkedAccount> getAccountOpeningLinkedAccListByAccRegID(@PathVariable(value = "id") Long accRegId) {
 		return accountOpeningLinkedAccRepository.findByaccRegId(accRegId);
 	}
 

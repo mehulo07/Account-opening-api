@@ -24,7 +24,7 @@ public class BusinessInformationWorkingHours implements Serializable {
 
 	@Id
 	@Column(name = "lic_info_details_two_id", nullable = false)
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long licenceInformationDetailsTwoId;
 
 	@OneToOne(fetch = FetchType.EAGER, targetEntity = BusinessInfo.class, cascade = CascadeType.ALL)

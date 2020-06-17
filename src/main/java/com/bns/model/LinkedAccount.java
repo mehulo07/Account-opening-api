@@ -25,7 +25,7 @@ public class LinkedAccount implements Serializable{
 	
 	@Id
     @Column(name = "acc_opening_linked_acc_id",nullable = false)
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long  accountOpeningLinkedAccId;
 	
     @Column(name = "web_Ordering",columnDefinition = "TINYINT(1)")

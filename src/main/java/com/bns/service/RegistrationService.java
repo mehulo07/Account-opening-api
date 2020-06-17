@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
-
 import com.bns.model.EmailInfo;
 import com.bns.model.Registration;
 import com.bns.model.VerificationToken;
@@ -32,11 +31,9 @@ public class RegistrationService {
 
 	@Autowired
 	private EmailInfoRepository accOpeningEmailInfoRepository;
-	
+
 	@Autowired
 	private VerificationTokenRepository verificationTokenRepository;
-
-	
 
 	public Registration createAccount(Registration accOpeningReg, String url) throws Exception {
 		System.out.println("inside createAccount sequence is:" + accOpeningReg.getAccountOpeningRegInfoId());
@@ -60,10 +57,8 @@ public class RegistrationService {
 			return token.append(currentTimeInMilisecond).append("-").append(UUID.randomUUID().toString()).toString();
 		};
 
-		System.out.println("Create Temp Token"+tokenSupplier.get());
 		
-		
-		VerificationToken vt=new VerificationToken();
+		VerificationToken vt = new VerificationToken();
 		vt.setAccOpeningReg(accOpeningReg);
 		vt.setTempToken(tokenSupplier.get());
 		vt.setCreateToken(LocalDateTime.now());
@@ -71,20 +66,21 @@ public class RegistrationService {
 		vt.setExpToken(tomorrow);
 		System.out.println(tomorrow);
 		verificationTokenRepository.save(vt);
+		System.out.println("Create Temp Token " + vt.getTempToken());
 		
-		
-		
-		
-		
+
 		// accOpeningReg.setAccOpeningEmailInfo(accOpeningEmailInfo);
 		// returnObj = accOpeningRegRepository.save(accOpeningReg);
 
-		//Send Mail
-		isMailSend = verificationMailSendingCls.sendMailFuncNewOne(returnObj.getRegEmailAddress(), returnObj.getAccountOpeningRegInfoId(),false,url,tokenSupplier.get());
-		if(isMailSend) {
-			returnVal ="Email verification mail is send to your email id please verify it :"+returnObj.getAccountOpeningRegInfoId();
-		}else {
-			returnVal ="Exception while email sending please try again";
+		// Send Mail
+		isMailSend = verificationMailSendingCls.sendMailFuncNewOne(returnObj.getRegEmailAddress(),
+				returnObj.getAccountOpeningRegInfoId(), false, url, vt.getTempToken());
+		
+		if (isMailSend) {
+			returnVal = "Email verification mail is send to your email id please verify it :"
+					+ returnObj.getAccountOpeningRegInfoId();
+		} else {
+			returnVal = "Exception while email sending please try again";
 		}
 
 		return accOpeningReg;
