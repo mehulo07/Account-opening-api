@@ -39,7 +39,7 @@ public class AddressController {
 	private AddressService accountOpeningAddressTabService;
 
 	@PostMapping("/accountOpeningAddressTab")
-	public  ResponseEntity<?> accountOpeningAddressTabSave(
+	public  AccountAddress accountOpeningAddressTabSave(
 			@Valid @RequestBody AccountAddress accountOpeningAddressTab) throws Exception {
 
 		Long businessinfoid = accountOpeningAddressTab.getAccountOpeningBusinessInfo()
@@ -55,7 +55,7 @@ public class AddressController {
 //		json.put("accountOpeningAddressTab", );
 		
 
-		return ResponseEntity.ok().body(accountOpeningAddressTabService.createAccountOpeningAddressTab(accountOpeningAddressTab));
+		return accountOpeningAddressTabService.createAccountOpeningAddressTab(accountOpeningAddressTab);
 
 	}
 
