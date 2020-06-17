@@ -93,7 +93,7 @@ public class PaymentController {
 		return paymentService.deletePaymentMethodInfo(methodInfoId);
 	}
 
-	@PostMapping("/paymentTermsReq")
+	@PostMapping("/paymentMethod")
 	public PaymentMethodMaster createPaymentMethod(@RequestBody PaymentMethodMaster paymentMethodMaster) {
 		return paymentMethodRepository.save(paymentMethodMaster);
 	}
@@ -104,7 +104,7 @@ public class PaymentController {
 		return paymentDeliveryTermsRepository.save(paymentDeliveryTermsMaster);
 	}
 
-	@PostMapping("/paymentDeliveryTerms")
+	@PostMapping("/paymentTermsReq")
 	public PaymentTermsRequestMaster createPaymentTermsRequestMaster(
 			@RequestBody PaymentTermsRequestMaster paymentTermsRequestMaster) {
 		return paymentTermsRequestRepository.save(paymentTermsRequestMaster);
